@@ -601,7 +601,7 @@ gs_tools.workbench_formspec = function(pos, params)
 		-- item label
 		local def = minetest.registered_items[item]
 		if def and def.description then
-			s = def.description
+			local s = def.description
 			if ro then
 				-- output more than 1?
 				local n = string.match(ro, " (%d+)$")
