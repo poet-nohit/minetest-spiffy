@@ -14,15 +14,25 @@
 
 --------------------------------------------------
 
+gs_tools.busy = {}
+
 function gs_tools.after_sledge(pos, oldnode, digger)
-	if digger then
+	-- *** clean this up a bit
+	if digger and not gs_tools.busy.digger then
+		gs_tools.busy.digger = true
 		local wielded = digger:get_wielded_item()
 		local rank = minetest.get_item_group(wielded:get_name(), "sledge")
 		if rank > 0 then
 			for _,k in ipairs(gs_tools.get_3x3s(pos, digger)) do
-				gs_tools.drop_node(k, digger, wielded, rank)
+				local node = minetest.get_node(k)
+				local level = minetest.get_item_group(node.name, "level")
+			
+				if rank >= level then
+					minetest.node_dig(k, node, digger)
+				end
 			end
 		end
+		gs_tools.busy.digger = nil
 	end
 end
 

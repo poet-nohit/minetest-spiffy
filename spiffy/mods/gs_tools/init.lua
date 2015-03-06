@@ -49,18 +49,7 @@ end
 
 minetest.after(1.5, gs_tools.get_player_inv_width)
 
--- break a node and give the default drops
-
-function gs_tools.drop_node(pos, digger, wielded, rank)
-	-- check if we can drop this node
-	local node = minetest.get_node(pos)
-	local level = minetest.get_item_group(node.name, "level")
-
-	if rank >= level then
-		-- *** just use node_dig
-		minetest.node_dig(pos, node, digger)
-	end
-end
+-- *** removed drop_node
 
 -- make a list of the 8 neighboring blocks around the pos a digger has targeted
 
