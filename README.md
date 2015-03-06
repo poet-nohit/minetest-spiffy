@@ -1,5 +1,5 @@
 # minetest-spiffy
-Spiffy subgame for Mintest
+Spiffy subgame for Minetest
 
 Why spiffy? Well, because I like to keep things updated
 and in their place. A nice peaceful world above, all
