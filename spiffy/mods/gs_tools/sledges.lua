@@ -49,7 +49,7 @@ minetest.register_tool("gs_tools:stone_sledge", {
 		full_punch_interval = 2.5,
 		max_drop_level=0,
 		groupcaps={
-			cracky = {times={[2]=3.0, [3]=2.5}, uses=20, maxlevel=1},
+			cracky = {times={[2]=3.0, [3]=2.5}, uses=200, maxlevel=1},
 		},
 		damage_groups = {fleshy=7},
 	},
@@ -63,7 +63,7 @@ minetest.register_tool("gs_tools:bronze_sledge", {
 		full_punch_interval = 1.0,
 		max_drop_level=1,
 		groupcaps={
-			cracky = {times={[1]=1.25, [2]=1.0, [3]=0.75}, uses=20, maxlevel=2},
+			cracky = {times={[1]=1.25, [2]=1.0, [3]=0.75}, uses=200, maxlevel=2},
 		},
 		damage_groups = {fleshy=7},
 	},
@@ -77,7 +77,7 @@ minetest.register_tool("gs_tools:obsidian_sledge", {
 		full_punch_interval = 1.5,
 		max_drop_level=1,
 		groupcaps={
-			cracky = {times={[1]=2.5, [2]=2.0, [3]=1.5}, uses=30, maxlevel=3},
+			cracky = {times={[1]=2.5, [2]=2.0, [3]=1.5}, uses=300, maxlevel=3},
 		},
 		damage_groups = {fleshy=8},
 	},
