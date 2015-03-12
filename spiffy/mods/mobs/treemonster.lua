@@ -57,7 +57,6 @@ mobs:register_mob("mobs:tree_monster", {
 -- spawn on leaves, between 0 and 5 light, 1 in 7000 chance, 1 in area up to 31000 in height
 mobs:register_spawn("mobs:tree_monster", {"default:leaves", "default:jungleleaves"}, 5, 0, 7000, 1, -64)
 mobs:register_spawn("mobs:tree_monster", {"nether:rack"}, 5, 0, 3500, 1, 31000)
-
 -- register spawn egg
 mobs:register_egg("mobs:tree_monster", "Tree Monster", "default_tree_top.png", 1)
 

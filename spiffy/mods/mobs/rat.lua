@@ -42,7 +42,6 @@ mobs:register_mob("mobs:rat", {
 })
 -- spawn on stone between 1 and 20 light, 1 in 7000 chance, 1 per area up to 31000 in height
 mobs:register_spawn("mobs:rat", {"default:stone"}, 5, 0, 7000, 1, 31000)
-
 -- register spawn egg
 mobs:register_egg("mobs:rat", "Rat", "mobs_rat_inventory.png", 0)
 	

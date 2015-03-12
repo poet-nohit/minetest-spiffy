@@ -82,5 +82,8 @@ mobs:register_arrow("mobs:fireball", {
 		}, 0)
 	end,
 
-	-- *** removed node hit
+	-- node hit, bursts into flame (cannot blast through obsidian or protection redo mod items)
+	hit_node = function(self, pos, node)
+		-- *** removed a bit more safely
+	end
 })

@@ -52,10 +52,8 @@ mobs:register_mob("mobs:spider", {
 	},
 })
 -- spawn on desert stone/crystal dirt, between 0 and 5 light, 1 in 7000 chance, 1 in area up to 71 in height
--- -64 height
 mobs:register_spawn("mobs:spider", {"default:desert_stone", "ethereal:crystal_topped_dirt"}, 5, 0, 7000, 1, -64)
 mobs:register_spawn("mobs:spider", {"nether:rack"}, 5, 0, 3500, 1, 31000)
-
 -- register spawn egg
 mobs:register_egg("mobs:spider", "Spider", "mobs_cobweb.png", 1)
 

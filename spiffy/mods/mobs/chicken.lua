@@ -40,6 +40,8 @@ mobs:register_mob("mobs:chicken", {
 	water_damage = 1,
 	lava_damage = 5,
 	light_damage = 0,
+	fall_damage = 0,
+	fall_speed = -8,
 	-- model animation
 	animation = {
 		speed_normal = 15,
@@ -50,8 +52,13 @@ mobs:register_mob("mobs:chicken", {
 	},
 	-- follows wheat
 	follow = "farming:wheat", view_range = 5,
+	-- replace air with egg (lay)
+	replace_rate = 1000,
+	replace_what = {"air"},
+	replace_with = "mobs:egg",
 	-- right click to pick up chicken
 	on_rightclick = function(self, clicker)
+		local item = clicker:get_wielded_item()
 		if clicker:is_player() and clicker:get_inventory() then
 			clicker:get_inventory():add_item("main", "mobs:chicken")
 			self.object:remove()

@@ -55,7 +55,6 @@ mobs:register_mob("mobs:lava_flan", {
 -- spawns in lava between 0 and 15 light, 1 in 1000 chance, 3 in area below 0 in height
 mobs:register_spawn("mobs:lava_flan", {"default:lava_source"}, 15, 0, 1000, 3, -64)
 mobs:register_spawn("mobs:lava_flan", {"nether:rack"}, 5, 0, 1000, 1, 31000)
-
 -- register spawn egg
 mobs:register_egg("mobs:lava_flan", "Lava Flan", "default_lava.png", 1)
 
