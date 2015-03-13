@@ -149,7 +149,8 @@ minetest.register_abm({
 							return
 						end
 
-						-- go
+						-- *** y++ in case you glitch below the portal
+						target.y = target.y + 1.0
 						obj:setpos(target)
 					end, obj, pos, target)
 
@@ -265,12 +266,21 @@ local function make_portal(pos, placer)
 	-- wait for the portal to actually get built, then return
 	local function wait_for_portal(pos, target, placer, ret)
 		local n = minetest.get_node_or_nil(target)
-		if n then
-			build_portal(target, pos)
+
+		-- checking for the name is actually necessary
+		if n and n.name == "nether:portal" then
 			placer:set_physics_override({gravity=1})
 			placer:setpos(ret)
 		else
-			minetest.after(1, wait_for_portal, pos, target, placer, ret)
+			placer:set_physics_override({gravity=0})
+			placer:setpos(target)
+			if n then
+				build_portal(target, pos)
+				minetest.after(2, wait_for_portal, pos, target, placer, ret)
+--				minetest.after(4, wait_for_portal, pos, target, placer, ret)
+			else
+				minetest.after(1, wait_for_portal, pos, target, placer, ret)
+			end
 		end
 	end
 
