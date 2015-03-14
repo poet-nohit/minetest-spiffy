@@ -55,49 +55,106 @@ minetest.register_node("nether:portal", {
 	groups = {not_in_creative_inventory=1}
 })
 
-local function build_portal(pos, target)
+-- *** make sure building the portal won't grief something
+
+local function check_node(pos, player)
+	local node = minetest.get_node(pos)
+	local def = ItemStack({name=node.name}):get_definition()
+	if not node.name == "air" and
+		not def.diggable or (def.can_dig and
+		not def.can_dig(pos,player)) then
+		return false
+	end
+
+	if minetest.is_protected(pos, player:get_player_name()) then
+		minetest.log("action", player:get_player_name()
+				.. " tried to build a portal to a protected position "
+				.. minetest.pos_to_string(pos))
+		minetest.record_protection_violation(pos, player:get_player_name())
+		return false
+	end
+
+	return true
+end
+
+-- *** allow target build to fail
+
+local function build_portal(pos, target, player)
 	local p = {x=pos.x-1, y=pos.y-1, z=pos.z}
 	local p1 = {x=pos.x-1, y=pos.y-1, z=pos.z}
 	local p2 = {x=p1.x+3, y=p1.y+4, z=p1.z}
+
 	for i=1,4 do
-		minetest.set_node(p, {name="default:obsidian"})
+		if check_node(p, player) then
+			minetest.set_node(p, {name="default:obsidian"})
+		else
+			return false
+		end
 		p.y = p.y+1
 	end
 	for i=1,3 do
-		minetest.set_node(p, {name="default:obsidian"})
+		if check_node(p, player) then
+			minetest.set_node(p, {name="default:obsidian"})
+		else
+			return false
+		end
 		p.x = p.x+1
 	end
 	for i=1,4 do
-		minetest.set_node(p, {name="default:obsidian"})
+		if check_node(p, player) then
+			minetest.set_node(p, {name="default:obsidian"})
+		else
+			return false
+		end
 		p.y = p.y-1
 	end
 	for i=1,3 do
-		minetest.set_node(p, {name="default:obsidian"})
+		if check_node(p, player) then
+			minetest.set_node(p, {name="default:obsidian"})
+		else
+			return false
+		end
 		p.x = p.x-1
 		if i ~= 3 then
-			minetest.set_node({x=p.x,y=p.y,z=p.z-2}, {name="nether:brick"})
-			minetest.set_node({x=p.x,y=p.y,z=p.z-1}, {name="nether:brick"})
-			minetest.set_node({x=p.x,y=p.y,z=p.z+1}, {name="nether:brick"})
-			minetest.set_node({x=p.x,y=p.y,z=p.z+2}, {name="nether:brick"})
+			-- landing space (can quietly fail)
+			if check_node({x=p.x,y=p.y,z=p.z-2}, player) then
+				minetest.set_node({x=p.x,y=p.y,z=p.z-2}, {name="nether:brick"})
+			end
+			if check_node({x=p.x,y=p.y,z=p.z-1}, player) then
+				minetest.set_node({x=p.x,y=p.y,z=p.z-1}, {name="nether:brick"})
+			end
+			if check_node({x=p.x,y=p.y,z=p.z+1}, player) then
+				minetest.set_node({x=p.x,y=p.y,z=p.z+1}, {name="nether:brick"})
+			end
+			if check_node({x=p.x,y=p.y,z=p.z+2}, player) then
+				minetest.set_node({x=p.x,y=p.y,z=p.z+2}, {name="nether:brick"})
+			end
 		end
 	end
 	for x=p1.x,p2.x do
 	for y=p1.y,p2.y do
 		p = {x=x, y=y, z=p1.z}
 		if not (x == p1.x or x == p2.x or y==p1.y or y==p2.y) then
-			minetest.set_node(p, {name="nether:portal", param2=0})
+			if check_node(p, player) then
+				minetest.set_node(p, {name="nether:portal", param2=0})
+			else
+				return false
+			end
 		end
 		local meta = minetest.get_meta(p)
 		meta:set_string("p1", minetest.pos_to_string(p1))
 		meta:set_string("p2", minetest.pos_to_string(p2))
 		meta:set_string("target", minetest.pos_to_string(target))
-		
+
+		-- clearing space (can quietly fail)
 		if y ~= p1.y then
 			for z=-2,2 do
 				if z ~= 0 then
 					p.z = p.z+z
 					if minetest.registered_nodes[minetest.get_node(p).name].is_ground_content then
-						minetest.remove_node(p)
+						if check_node(p, player) then
+							minetest.remove_node(p)
+						end
 					end
 					p.z = p.z-z
 				end
@@ -106,6 +163,8 @@ local function build_portal(pos, target)
 		
 	end
 	end
+
+	return true
 end
 
 minetest.register_abm({
@@ -149,8 +208,7 @@ minetest.register_abm({
 							return
 						end
 
-						-- *** y++ in case you glitch below the portal
-						target.y = target.y + 1.0
+						-- go
 						obj:setpos(target)
 					end, obj, pos, target)
 
@@ -236,9 +294,6 @@ local function make_portal(pos, placer)
 	end
 	end
 	
-	local param2
-	if p1.z == p2.z then param2 = 0 else param2 = 1 end
-	
 	local target = {x=p1.x, y=p1.y, z=p1.z}
 	target.x = target.x + 1
 	if target.y < NETHER_DEPTH then
@@ -250,7 +305,7 @@ local function make_portal(pos, placer)
 		if math.abs(target.y) < 3000 then
 			target.y = target.y * 10
 		end
-		if target.y <= BEDROCK then target.y = BEDROCK+1 end
+		if target.y <= BEDROCK then target.y = BEDROCK+2 end
 		if math.abs(target.z) < 3000 then
 			target.z = target.z * 10
 		end
@@ -264,22 +319,50 @@ local function make_portal(pos, placer)
 	end
 
 	-- wait for the portal to actually get built, then return
-	local function wait_for_portal(pos, target, placer, ret)
+	local function wait_for_portal(pos, target, placer, ret, p1, p2)
 		local n = minetest.get_node_or_nil(target)
 
 		-- checking for the name is actually necessary
 		if n and n.name == "nether:portal" then
-			placer:set_physics_override({gravity=1})
 			placer:setpos(ret)
+			placer:set_physics_override({gravity=1})
 		else
 			placer:set_physics_override({gravity=0})
 			placer:setpos(target)
 			if n then
-				build_portal(target, pos)
-				minetest.after(2, wait_for_portal, pos, target, placer, ret)
---				minetest.after(4, wait_for_portal, pos, target, placer, ret)
+				if build_portal(target, pos, placer) then
+					local param2
+					if p1.z == p2.z then param2 = 0 else param2 = 1 end
+					for d=0,3 do
+					for y=p1.y,p2.y do
+						local p = {}
+						if param2 == 0 then
+							p = {x=p1.x+d, y=y, z=p1.z}
+						else
+							p = {x=p1.x, y=y, z=p1.z+d}
+						end
+						if minetest.get_node(p).name == "air" then
+							minetest.set_node(p, {name="nether:portal", param2=param2})
+						end
+
+						local meta = minetest.get_meta(p)
+						meta:set_string("p1", minetest.pos_to_string(p1))
+						meta:set_string("p2", minetest.pos_to_string(p2))
+						meta:set_string("target", minetest.pos_to_string(target))
+					end
+					end
+					minetest.after(2, wait_for_portal, pos, target, placer, ret, p1, p2)
+--					minetest.after(4, wait_for_portal, pos, target, placer, ret, p1, p2)
+				else
+					minetest.chat_send_player(placer:get_player_name(), "Failed to build portal.")
+					placer:setpos(ret)
+					placer:set_physics_override({gravity=1})
+					if not minetest.setting_getbool("creative_mode") then
+						placer:get_inventory():add_item(ItemStack("default:mese_crystal_fragment"))
+					end
+				end
 			else
-				minetest.after(1, wait_for_portal, pos, target, placer, ret)
+				minetest.after(1, wait_for_portal, pos, target, placer, ret, p1, p2)
 			end
 		end
 	end
@@ -288,22 +371,15 @@ local function make_portal(pos, placer)
 	local ret = placer:getpos()
 	placer:set_physics_override({gravity=0})
 	placer:setpos(target)
-	minetest.after(1, wait_for_portal, pos, target, placer, ret)
 
-	for d=0,3 do
-	for y=p1.y,p2.y do
-		local p = {}
-		if param2 == 0 then p = {x=p1.x+d, y=y, z=p1.z} else p = {x=p1.x, y=y, z=p1.z+d} end
-		if minetest.get_node(p).name == "air" then
-			minetest.set_node(p, {name="nether:portal", param2=param2})
-		end
-
-		local meta = minetest.get_meta(p)
-		meta:set_string("p1", minetest.pos_to_string(p1))
-		meta:set_string("p2", minetest.pos_to_string(p2))
-		meta:set_string("target", minetest.pos_to_string(target))
+	-- give the target a proper return position
+	local rpos
+	if p1.z == p2.z then
+		rpos = {x=p1.x+1.5, y=p1.y+1, z=p1.z}
+	else
+		rpos = {x=p1.x, y=p1.y+1, z=p1.z+1.5}
 	end
-	end
+	minetest.after(1, wait_for_portal, rpos, target, placer, ret, p1, p2)
 
 	return true
 end
