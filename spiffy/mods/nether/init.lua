@@ -210,6 +210,8 @@ minetest.register_abm({
 
 						-- go
 						obj:setpos(target)
+						minetest.sound_play("nether_teleport", {to_player = obj:get_player_name(),
+							gain = 0.5})
 					end, obj, pos, target)
 
 				end
