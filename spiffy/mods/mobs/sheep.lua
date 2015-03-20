@@ -101,7 +101,7 @@ minetest.register_tool("mobs:shears", {
 		full_punch_interval = 1,
 		max_drop_level=1,
 		groupcaps={
-			snappy={times={[1]=2.5, [2]=1.20, [3]=0.35}, uses=30, maxlevel=2},
+			snappy={times={[1]=1.90, [2]=0.90, [3]=0.20}, uses=30, maxlevel=2},
 		},
 		damage_groups = {fleshy=0},
 	}
