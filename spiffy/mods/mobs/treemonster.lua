@@ -15,9 +15,8 @@ mobs:register_mob("mobs:tree_monster", {
 	visual = "mesh",
 	mesh = "mobs_tree_monster.x",
 	drawtype = "front",
-	available_textures = {
-		total = 1,
-		texture_1 = {"mobs_tree_monster.png"},
+	textures = {
+		{"mobs_tree_monster.png"},
 	},
 	visual_size = {x=4.5,y=4.5},
 	blood_texture = "default_wood.png",
@@ -44,7 +43,7 @@ mobs:register_mob("mobs:tree_monster", {
 	water_damage = 1,
 	lava_damage = 5,
 	light_damage = 2,
-	fall_damage = false,
+	fall_damage = 0,
 	-- model animation
 	animation = {
 		speed_normal = 15,		speed_run = 15,

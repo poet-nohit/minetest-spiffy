@@ -17,9 +17,8 @@ mobs:register_mob("mobs:mese_monster", {
 	collisionbox = {-0.5, -1.5, -0.5, 0.5, 0.5, 0.5},
 	visual = "mesh",
 	mesh = "zmobs_mese_monster.x",
-	available_textures = {
-		total = 1,
-		texture_1 = {"zmobs_mese_monster.png"},
+	textures = {
+		{"zmobs_mese_monster.png"},
 	},
 	visual_size = {x=1, y=1},
 	drawtype = "front",
@@ -34,7 +33,8 @@ mobs:register_mob("mobs:mese_monster", {
 	walk_velocity = 0.5,
 	run_velocity = 2,
 	jump = true,
-	fall_damage = false,
+	fall_damage = 0,
+	fall_speed = -6,
 	-- drops mese when dead
 	drops = {
 		{name = "default:mese_crystal",

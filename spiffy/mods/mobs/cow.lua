@@ -15,9 +15,8 @@ mobs:register_mob("mobs:cow", {
 	visual = "mesh",
 	mesh = "mobs_cow.x",
 	drawtype = "front",
-	available_textures = {
-		total = 1,
-		texture_1 = {"mobs_cow.png"},
+	textures = {
+		{"mobs_cow.png"},
 	},
 	blood_texture = "mobs_blood.png",
 	visual_size = {x=1,y=1},
@@ -81,7 +80,7 @@ mobs:register_mob("mobs:cow", {
 	end,
 })
 -- spawn on default;green;prairie grass between 0 and 20 light, 1 in 11000 chance, 1 cow in area up to 31000 in height
-mobs:register_spawn("mobs:cow", {"default:dirt_with_grass", "ethereal:green_dirt_top", "ethereal:prairie_dirt"}, 20, 0, 11000, 1, 31000)
+mobs:register_spawn("mobs:cow", {"default:dirt_with_grass", "ethereal:green_dirt_top"}, 20, 0, 11000, 1, 31000)
 -- register spawn egg
 mobs:register_egg("mobs:cow", "Cow", "default_grass.png", 1)
 
