@@ -33,6 +33,8 @@ bedrock: by Calinou
   https://forum.minetest.net/viewtopic.php?f=11&t=9231
 builtin_item: by PilzAdam and Calinou
   https://forum.minetest.net/viewtopic.php?f=11&t=9637
+carts: by PilzAdam
+  https://forum.minetest.net/viewtopic.php?f=11&t=2451
 digilines: by Jeija
   https://forum.minetest.net/viewtopic.php?f=11&t=5263
 farming: "farming redo" by webdesigner97 and TenPlus1
@@ -71,6 +73,8 @@ throwing: by PilzAdam
   https://forum.minetest.net/viewtopic.php?f=11&t=2805
 unified_inventory: by RealBadAngel
   https://forum.minetest.net/viewtopic.php?f=11&t=3933
+worldedit: by sfan5
+  https://forum.minetest.net/viewtopic.php?f=11&t=572
 
 The following are from minetest_game:
   https://github.com/minetest/minetest_game
@@ -118,6 +122,7 @@ chop/dig the lowest block and the blocks above will then
 fall immediately.
 
 bedrock: added a can_dig function and moved it to -256
+carts: punching a cart while in it will pick it up
 default: changes how lava cools, leaves decay, made clay
   more abundant and raised the heights for various ores,
   made trees dig_up like papyrus/cactus

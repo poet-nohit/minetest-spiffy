@@ -91,50 +91,47 @@ minetest.register_entity(":__builtin:item", {
 		local p = self.object:getpos()
 		
 		local name = minetest.get_node(p).name
-		if minetest.registered_nodes[name].damage_per_second > 0 or name == "maptools:igniter" then
+		if minetest.registered_nodes[name].damage_per_second > 0 then
 			minetest.sound_play("builtin_item_lava", {pos = self.object:getpos(), gain = 0.45})
 			self.object:remove()
 			return
 		end
 		
-		-- *** added this back in
+		-- *** modified how this works a bit
 		if minetest.registered_nodes[name].liquidtype == "flowing" then
-			local get_flowing_dir = function(self)
-				local pos = self.object:getpos()
-				local param2 = minetest.env:get_node(pos).param2
-				for i,d in ipairs({-1, 1, -1, 1}) do
-					if i<3 then
-						pos.x = pos.x+d
-					else
-						pos.z = pos.z+d
+			local get_flowing_dir = function(p1)
+				local pr = nil
+				local l1 = minetest.env:get_node_level(p1)
+				for _,x in ipairs({0,-1,1}) do
+				for _,z in ipairs({0,-1,1}) do
+					local p2 = {x=p1.x+x, y=p1.y, z=p1.z+z}
+					local name = minetest.env:get_node(p2).name
+					if name == "default:water_flowing" then
+						local l2 = minetest.env:get_node_level(p2)
+						if l2 < l1 then
+							pr = {x=p2.x, y=p2.y, z=p2.z}
+							l1 = l2
+						end
 					end
-					
-					local name = minetest.env:get_node(pos).name
-					local par2 = minetest.env:get_node(pos).param2
-					if name == "default:water_flowing" and par2 < param2 then
-						return pos
-					end
-					
-					if i<3 then
-						pos.x = pos.x-d
-					else
-						pos.z = pos.z-d
+					if name == "air" and l1 >= 0 then
+						pr = {x=p2.x, y=p2.y, z=p2.z}
+						l1 = -1
 					end
 				end
+				end
+				return pr
 			end
 			
-			local vec = get_flowing_dir(self)
+			local vec = get_flowing_dir(p)
 			if vec then
 				local v = self.object:getvelocity()
-				if vec and vec.x-p.x > 0 then
-					self.object:setvelocity({x=0.5,y=v.y,z=0})
-				elseif vec and vec.x-p.x < 0 then
-					self.object:setvelocity({x=-0.5,y=v.y,z=0})
-				elseif vec and vec.z-p.z > 0 then
-					self.object:setvelocity({x=0,y=v.y,z=0.5})
-				elseif vec and vec.z-p.z < 0 then
-					self.object:setvelocity({x=0,y=v.y,z=-0.5})
+				local vx = 0
+				local vz = 0
+				if vec then
+					vx = (vec.x - p.x) / 2
+					vz = (vec.z - p.z) / 2
 				end
+				self.object:setvelocity({x=vx,y=v.y,z=vz})
 				self.object:setacceleration({x=0, y=-10, z=0})
 				self.physical_state = true
 				self.object:set_properties({

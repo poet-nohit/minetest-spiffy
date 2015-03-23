@@ -233,7 +233,7 @@ minetest.register_abm({
 	-- A low interval and a high inverse chance spreads the load
 	-- *** a bit more I think...
 	interval = 1,
-	chance = 2,
+	chance = 4,
 
 	action = function(p0, node, _, _)
 		--print("leafdecay ABM at "..p0.x..", "..p0.y..", "..p0.z..")")

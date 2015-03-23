@@ -1,4 +1,3 @@
-
 --
 -- Helper functions
 --
@@ -34,7 +33,7 @@ local boat = {
 	physical = true,
 	collisionbox = {-0.5, -0.4, -0.5, 0.5, 0.3, 0.5},
 	visual = "mesh",
-	mesh = "boat.x",
+	mesh = "boat.obj",
 	textures = {"default_wood.png"},
 
 	driver = nil,
@@ -214,4 +213,3 @@ minetest.register_craft({
 		{"group:wood", "group:wood", "group:wood"},
 	},
 })
-
