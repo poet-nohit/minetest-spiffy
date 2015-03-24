@@ -918,19 +918,6 @@ minetest.register_craft( {
 	},
 })
 
--- cotton version:
-
-minetest.register_craft( {
-	type = "shapeless",
-        output = "homedecor:rug_small 8",
-       	recipe = {
-       		"cotton:red",
-		"cotton:yellow",
-		"cotton:blue",
-		"cotton:black"
-	},
-})
-
 minetest.register_craft({
        	type = "fuel",
        	recipe = "homedecor:rug_small",
@@ -976,24 +963,6 @@ minetest.register_craft( {
 		{ "wool:black", "homedecor:speaker_driver", "group:wood" },
 		{ "wool:black", "homedecor:speaker_driver", "group:wood" },
 		{ "wool:black", "group:wood", "group:wood" },
-	},
-})
-
--- cotton version
-
-minetest.register_craft( {
-        output = "homedecor:speaker_small",
-      		recipe = {
-		{ "cotton:black", "homedecor:speaker_driver", "group:wood" },
-	},
-})
-
-minetest.register_craft( {
-        output = "homedecor:speaker",
-      		recipe = {
-		{ "cotton:black", "homedecor:speaker_driver", "group:wood" },
-		{ "cotton:black", "homedecor:speaker_driver", "group:wood" },
-		{ "cotton:black", "group:wood", "group:wood" },
 	},
 })
 

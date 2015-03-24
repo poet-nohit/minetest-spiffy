@@ -8,7 +8,6 @@ local shutters = {
 	{"red", "Red"},
 	{"yellow", "Yellow"},
 	{"forest_green", "Forest green"},
-	{"light_blue", "Light blue"},
 	{"violet", "Violet"},
 	{"black", "Black"},
 	{"dark_grey", "Dark grey"},
