@@ -41,6 +41,8 @@ farming: "farming redo" by webdesigner97 and TenPlus1
   https://forum.minetest.net/viewtopic.php?f=11&t=9019
 gs_tools: by gsmanners
   https://forum.minetest.net/viewtopic.php?f=11&t=8970
+homedecor: by VanessaE
+  https://forum.minetest.net/viewtopic.php?f=11&t=2041
 hud: by BlockMen
   https://forum.minetest.net/viewtopic.php?f=11&t=6342
 item_drop: by PilzAdam and Calinou
