@@ -37,6 +37,8 @@ carts: by PilzAdam
   https://forum.minetest.net/viewtopic.php?f=11&t=2451
 digilines: by Jeija
   https://forum.minetest.net/viewtopic.php?f=11&t=5263
+ethereal: by Chinchow and TenPlus1
+  https://forum.minetest.net/viewtopic.php?f=11&t=7656
 farming: "farming redo" by webdesigner97 and TenPlus1
   https://forum.minetest.net/viewtopic.php?f=11&t=9019
 gs_tools: by gsmanners
