@@ -221,14 +221,8 @@ pipeworks.register_tube("pipeworks:teleport_tube", {
 		end
 	},
 })
-minetest.register_craft( {
-	output = "pipeworks:teleport_tube_1 2",
-	recipe = {
-	        { "homedecor:plastic_sheeting", "homedecor:plastic_sheeting", "homedecor:plastic_sheeting" },
-	        { "default:desert_stone", "default:mese", "default:desert_stone" },
-	        { "homedecor:plastic_sheeting", "homedecor:plastic_sheeting", "homedecor:plastic_sheeting" }
-	},
-})
+
+-- *** craft removed by technic
 
 if minetest.get_modpath("mesecons_mvps") ~= nil then
 	mesecon.register_on_mvps_move(function(moved_nodes)

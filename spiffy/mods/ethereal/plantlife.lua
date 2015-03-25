@@ -398,35 +398,8 @@ minetest.register_craft({
 	}
 })
 
--- Gravel (5x cobble in X pattern gives 5 gravel)
-minetest.register_craft({
-	output = "default:gravel 5",
-	recipe = {
-		{"default:cobble", "", "default:cobble"},
-		{"", "default:cobble", ""},
-		{"default:cobble", "", "default:cobble"},
-	}
-})
-
--- Dirt (5x gravel in X pattern gives 5 dirt)
-minetest.register_craft({
-	output = "default:dirt 5",
-	recipe = {
-		{"default:gravel", "", "default:gravel"},
-		{"", "default:gravel", ""},
-		{"default:gravel", "", "default:gravel"},
-	}
-})
-
--- Sand (5x dirt in X pattern gives 5 sand)
-minetest.register_craft({
-	output = "default:sand 5",
-	recipe = {
-		{"default:dirt", "", "default:dirt"},
-		{"", "default:dirt", ""},
-		{"default:dirt", "", "default:dirt"},
-	}
-})
+-- *** removed dirt, gravel and sand recipes
+-- as those are dealt with by the grinder
 
 -- Snow (5x ice in X pattern gives 5 snow)
 minetest.register_craft({

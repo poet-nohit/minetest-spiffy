@@ -50,14 +50,7 @@ if pipeworks.enable_accelerator_tube then
 					end}
 			},
 	})
-	minetest.register_craft( {
-		output = "pipeworks:accelerator_tube_1 2",
-		recipe = {
-			{ "homedecor:plastic_sheeting", "homedecor:plastic_sheeting", "homedecor:plastic_sheeting" },
-			{ "default:mese_crystal_fragment", "default:steel_ingot", "default:mese_crystal_fragment" },
-			{ "homedecor:plastic_sheeting", "homedecor:plastic_sheeting", "homedecor:plastic_sheeting" }
-		},
-	})
+	-- *** craft removed by technic
 end
 
 if pipeworks.enable_crossing_tube then

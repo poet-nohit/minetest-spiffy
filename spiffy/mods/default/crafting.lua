@@ -359,13 +359,7 @@ minetest.register_craft({
 	}
 })
 
--- *** remove this for Technic
-
---minetest.register_craft({
---	type = "shapeless",
---	output = "default:bronze_ingot",
---	recipe = {"default:steel_ingot", "default:copper_ingot"},
---})
+-- *** Technic bronze = tin + copper
 
 minetest.register_craft({
 	output = 'default:coalblock',
@@ -463,20 +457,8 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_craft({
-	output = 'default:sandstone',
-	recipe = {
-		{'group:sand', 'group:sand'},
-		{'group:sand', 'group:sand'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:sand 4',
-	recipe = {
-		{'default:sandstone'},
-	}
-})
+-- *** sandstone -> sand handled by grinder
+-- and vice versa by compressor
 
 minetest.register_craft({
 	output = 'default:sandstonebrick 4',

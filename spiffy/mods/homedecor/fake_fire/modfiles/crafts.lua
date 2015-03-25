@@ -56,34 +56,4 @@ minetest.register_craft({
 	}
 })
 
--- Cobble to Gravel
-minetest.register_craft({
-	output = 'default:gravel',
-	recipe = {
-		{'default:cobble'},
-	}
-})
-
--- Gravel to Sand
-minetest.register_craft({
-	output = 'default:sand',
-	recipe = {
-		{'default:gravel'},
-	}
-})
-
--- Desert Sand to Sand
-minetest.register_craft({
-	output = 'default:sand',
-	recipe = {
-		{'default:desert_sand'},
-	}
-})
-
--- Sand to Desert Sand
-minetest.register_craft({
-	output = 'default:desert_sand',
-	recipe = {
-		{'default:sand'},
-	}
-})
+-- *** removed gravel and sand recipes, as those are handled by technic
