@@ -88,6 +88,8 @@ end
 --
 -- *** if lower than -128, lava vaporizes the water
 
+default.playing_cool = 0
+
 default.cool_lava_source = function(pos)
 	if pos.y > -128 then
 		minetest.set_node(pos, {name="default:obsidian"})
@@ -97,11 +99,11 @@ default.cool_lava_source = function(pos)
 		if w then
 			minetest.remove_node(w)
 		end
-		local p1 = {x=pos.x-1, y=pos.y, z=pos.z-1}
-		local p2 = {x=pos.x+1, y=pos.y, z=pos.z+1}
-		w = minetest.find_nodes_in_area(p1, p2, {"group:water"})
-		if not w or #w < 1 then
+		local function reset_lava_cool() default.playing_cool = 0 end
+		if default.playing_cool < 8 then
+			default.playing_cool = default.playing_cool + 1
 			minetest.sound_play("default_cool_lava", {pos = pos,  gain = 0.25})
+			minetest.after(1, reset_lava_cool)
 		end
 	end
 end
@@ -115,8 +117,11 @@ default.cool_lava_flowing = function(pos)
 		if w then
 			minetest.remove_node(w)
 		end
-		if minetest.find_node_near(pos, 1, {"group:water"}) == nil then
+		local function reset_lava_cool() default.playing_cool = 0 end
+		if default.playing_cool < 8 then
+			default.playing_cool = default.playing_cool + 1
 			minetest.sound_play("default_cool_lava", {pos = pos,  gain = 0.25})
+			minetest.after(1, reset_lava_cool)
 		end
 	end
 end
