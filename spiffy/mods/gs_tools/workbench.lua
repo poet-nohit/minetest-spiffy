@@ -524,6 +524,11 @@ gs_tools.workbench_formspec = function(pos, params)
 		local ri = gs_tools.crafts[item][recipe].items
 		local ro = gs_tools.crafts[item][recipe].output
 		local rw = gs_tools.crafts[item][recipe].width
+		-- *** this seems to be necessary, somehow
+		if rt == "normal" or rt == "cooking" then
+			local r,d = minetest.get_craft_result({ method = "normal", width = rw, items = ri })
+			ro = r.item:to_string()
+		end
 
 		if rw and rw == 0 then rw = 3 end
 
