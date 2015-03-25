@@ -133,39 +133,7 @@ minetest.register_craft({
 })
 
 -- Charcoal Lump
-minetest.register_craftitem("ethereal:charcoal_lump", {
-	description = "Lump of Charcoal",
-	inventory_image = "charcoal_lump.png",
-})
-
-minetest.register_craft({
-	output = "ethereal:charcoal_lump 2",
-	recipe = {
-		{"ethereal:scorched_tree"}
-	}
-})
-
-minetest.register_craft({
-	output = "ethereal:charcoal_lump 4",
-	type = "cooking",
-	recipe = "group:tree",
-	cooktime = 4
-})
-
-minetest.register_craft({
-	type = "fuel",
-	recipe = "ethereal:charcoal_lump",
-	burntime = 10,
-})
-
--- Make Torch from Charcoal Lump
-minetest.register_craft({
-	output = "default:torch 4",
-	recipe = {
-		{"ethereal:charcoal_lump"},
-		{"default:stick"},
-	}
-})
+-- *** removed (conflicts with gstools)
 
 -- Obsidian Brick (now in default game so added compatibility for old maps)
 minetest.register_alias("ethereal:obsidian_brick", "default:obsidianbrick")
