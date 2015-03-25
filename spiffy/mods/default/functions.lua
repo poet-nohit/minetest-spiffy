@@ -97,7 +97,10 @@ default.cool_lava_source = function(pos)
 		if w then
 			minetest.remove_node(w)
 		end
-		if minetest.find_node_near(pos, 1, {"group:water"}) == nil then
+		local p1 = {x=pos.x-1, y=pos.y, z=pos.z-1}
+		local p2 = {x=pos.x+1, y=pos.y, z=pos.z+1}
+		w = minetest.find_nodes_in_area(p1, p2, {"group:water"})
+		if not w or #w < 1 then
 			minetest.sound_play("default_cool_lava", {pos = pos,  gain = 0.25})
 		end
 	end
