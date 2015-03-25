@@ -39,8 +39,6 @@ pipeworks.mesecons_rules={{x=0,y=0,z=1},{x=0,y=0,z=-1},{x=1,y=0,z=0},{x=-1,y=0,z
 
 pipeworks.liquid_texture = "default_water.png"
 
-pipeworks.pipe_nodenames = {}
-
 -- Helper functions
 
 function pipeworks.fix_image_names(table, replacement)
@@ -59,37 +57,15 @@ function pipeworks.add_node_box(t, b)
 	end
 end
 
-function pipeworks.node_is_owned(pos, placer)
-	local ownername = false
-	if type(IsPlayerNodeOwner) == "function" then					-- node_ownership mod
-		if HasOwner(pos, placer) then						-- returns true if the node is owned
-			if not IsPlayerNodeOwner(pos, placer:get_player_name()) then
-				if type(getLastOwner) == "function" then		-- ...is an old version
-					ownername = getLastOwner(pos)
-				elseif type(GetNodeOwnerName) == "function" then	-- ...is a recent version
-					ownername = GetNodeOwnerName(pos)
-				else
-					ownername = S("someone")
-				end
-			end
-		end
+function pipeworks.may_configure(pos, player)
+	local name = player:get_player_name()
+	local meta = minetest.get_meta(pos)
+	local owner = meta:get_string("owner")
 
-	elseif type(isprotect)=="function" then 					-- glomie's protection mod
-		if not isprotect(5, pos, placer) then
-			ownername = S("someone")
-		end
-	elseif type(protector)=="table" and type(protector.can_dig)=="function" then 	-- Zeg9's protection mod
-		if not protector.can_dig(5, pos, placer) then
-			ownername = S("someone")
-		end
+	if owner ~= "" then -- wielders and filters
+		return owner == name
 	end
-
-	if ownername ~= false then
-		minetest.chat_send_player( placer:get_player_name(), S("Sorry, %s owns that spot."):format(ownername) )
-		return true
-	else
-		return false
-	end
+	return not minetest.is_protected(pos, name)
 end
 
 function pipeworks.replace_name(tbl,tr,name)
@@ -106,18 +82,6 @@ function pipeworks.replace_name(tbl,tr,name)
 	return ntbl
 end
 
-function pipeworks.table_copy(t)
-	local nt = { };
-	for k, v in pairs(t) do
-		if type(v) == "table" then
-			nt[k] = pipeworks.table_copy(v)
-		else
-			nt[k] = v
-		end
-	end
-	return nt
-end
-
 -------------------------------------------
 -- Load the various other parts of the mod
 
@@ -127,10 +91,7 @@ dofile(pipeworks.modpath.."/autoplace_pipes.lua")
 dofile(pipeworks.modpath.."/autoplace_tubes.lua")
 dofile(pipeworks.modpath.."/luaentity.lua")
 dofile(pipeworks.modpath.."/item_transport.lua")
-
-if pipeworks.enable_pipes then dofile(pipeworks.modpath.."/pipes.lua") end
 dofile(pipeworks.modpath.."/flowing_logic.lua")
-
 dofile(pipeworks.modpath.."/crafts.lua")
 dofile(pipeworks.modpath.."/tube_registration.lua")
 dofile(pipeworks.modpath.."/routing_tubes.lua")
@@ -142,6 +103,7 @@ dofile(pipeworks.modpath.."/filter-injector.lua")
 dofile(pipeworks.modpath.."/trashcan.lua")
 dofile(pipeworks.modpath.."/wielder.lua")
 
+if pipeworks.enable_pipes then dofile(pipeworks.modpath.."/pipes.lua") end
 if pipeworks.enable_teleport_tube then dofile(pipeworks.modpath.."/teleport_tube.lua") end
 if pipeworks.enable_pipe_devices then dofile(pipeworks.modpath.."/devices.lua") end
 if pipeworks.enable_redefines then dofile(pipeworks.modpath.."/compat.lua") end

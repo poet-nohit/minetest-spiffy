@@ -164,12 +164,12 @@ minetest.register_craft({
 })
 
 -- Remove some recipes
--- Bronze
-minetest.register_craft({
-	type = "shapeless",
-	output = "default:bronze_ingot 0",
-	recipe = {"default:copper_ingot", "default:steel_ingot"}
-})
+-- Bronze (*** already removed in spiffy)
+--minetest.register_craft({
+--	type = "shapeless",
+--	output = "default:bronze_ingot 0",
+--	recipe = {"default:copper_ingot", "default:steel_ingot"}
+--})
 
 -- Accelerator tube
 minetest.register_craft({

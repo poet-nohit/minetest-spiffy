@@ -1,27 +1,28 @@
--- *** removed most of the noise params because they weren't working right
--- and played around with the scarcity a bit
--- adjusted heights to work around the bedrock being at -256
+local uranium_params = {offset = 0, scale = 1, spread = {x = 100, y = 100, z = 100}, seed = 420, octaves = 3, persist = 0.7}
+local uranium_threshhold = 0.55
+
+local chromium_params = {offset = 0, scale = 1, spread = {x = 100, y = 100, z = 100}, seed = 421, octaves = 3, persist = 0.7}
+local chromium_threshhold = 0.55
+
+local zinc_params = {offset = 0, scale = 1, spread = {x = 100, y = 100, z = 100}, seed = 422, octaves = 3, persist = 0.7}
+local zinc_threshhold = 0.5
+
+local lead_params = {offset = 0, scale = 1, spread = {x = 100, y = 100, z = 100}, seed = 423, octaves = 3, persist = 0.7}
+local lead_threshhold = 0.3
+
+-- *** adjusted heights to work around the bedrock being at -256
 
 minetest.register_ore({
 	ore_type         = "scatter",
 	ore              = "technic:mineral_uranium",
 	wherein          = "default:stone",
-	clust_scarcity   = 7*7*7,
+	clust_scarcity   = 8*8*8,
 	clust_num_ores   = 4,
 	clust_size       = 3,
-	height_min       = -255,
-	height_max       = -50,
-})
-
-minetest.register_ore({
-	ore_type         = "scatter",
-	ore              = "technic:mineral_chromium",
-	wherein          = "default:stone",
-	clust_scarcity   = 11*11*11,
-	clust_num_ores   = 2,
-	clust_size       = 3,
-	height_min       = -127,
-	height_max       = -64,
+	y_min       = -255,
+	y_max       = -50,
+	noise_params     = uranium_params,
+	noise_threshhold = uranium_threshhold,
 })
 
 minetest.register_ore({
@@ -31,9 +32,24 @@ minetest.register_ore({
 	clust_scarcity   = 8*8*8,
 	clust_num_ores   = 2,
 	clust_size       = 3,
-	height_min       = -400,
-	height_max       = -128,
+	y_min       = -127,
+	y_max       = -64,
+	noise_params     = chromium_params,
+	noise_threshhold = chromium_threshhold,
+})
+
+minetest.register_ore({
+	ore_type         = "scatter",
+	ore              = "technic:mineral_chromium",
+	wherein          = "default:stone",
+	clust_scarcity   = 6*6*6,
+	clust_num_ores   = 2,
+	clust_size       = 3,
+	y_min       = -31000,
+	y_max       = -128,
 	flags            = "absheight",
+	noise_params     = chromium_params,
+	noise_threshhold = chromium_threshhold,
 })
 
 minetest.register_ore({
@@ -43,8 +59,10 @@ minetest.register_ore({
 	clust_scarcity   = 8*8*8,
 	clust_num_ores   = 4,
 	clust_size       = 3,
-	height_min       = -32,
-	height_max       = 2,
+	y_min       = -32,
+	y_max       = 2,
+	noise_params     = zinc_params,
+	noise_threshhold = zinc_threshhold,
 })
 
 minetest.register_ore({
@@ -54,9 +72,11 @@ minetest.register_ore({
 	clust_scarcity   = 6*6*6,
 	clust_num_ores   = 4,
 	clust_size       = 3,
-	height_min       = -400,
-	height_max       = -32,
+	y_min       = -31000,
+	y_max       = -32,
 	flags            = "absheight",
+	noise_params     = zinc_params,
+	noise_threshhold = zinc_threshhold,
 })
 
 minetest.register_ore({
@@ -66,8 +86,10 @@ minetest.register_ore({
 	clust_scarcity   = 9*9*9,
 	clust_num_ores   = 5,
 	clust_size       = 3,
-	height_min       = -16,
-	height_max       = 16,
+	y_min       = -16,
+	y_max       = 16,
+	noise_params     = lead_params,
+	noise_threshhold = lead_threshhold,
 })
 
 minetest.register_ore({
@@ -77,8 +99,10 @@ minetest.register_ore({
 	clust_scarcity   = 8*8*8,
 	clust_num_ores   = 5,
 	clust_size       = 3,
-	height_min       = -127,
-	height_max       = -16,
+	y_min       = -127,
+	y_max       = -16,
+	noise_params     = lead_params,
+	noise_threshhold = lead_threshhold,
 })
 
 minetest.register_ore({
@@ -88,9 +112,11 @@ minetest.register_ore({
 	clust_scarcity   = 6*6*6,
 	clust_num_ores   = 5,
 	clust_size       = 3,
-	height_min       = -400,
-	height_max       = -128,
+	y_min       = -31000,
+	y_max       = -128,
 	flags            = "absheight",
+	noise_params     = lead_params,
+	noise_threshhold = lead_threshhold,
 })
 
 -- Sulfur
@@ -143,8 +169,8 @@ minetest.register_ore({
 	clust_scarcity = 1,
 	clust_num_ores = 1,
 	clust_size     = 3,
-	height_min     = -31000,
-	height_max     = -20,
+	y_min     = -31000,
+	y_max     = -20,
 	noise_threshhold = 0.4,
 	noise_params = {offset=0, scale=15, spread={x=150, y=150, z=150}, seed=23, octaves=3, persist=0.70}
 })
@@ -158,8 +184,8 @@ minetest.register_ore({
 	clust_scarcity = 1,
 	clust_num_ores = 1,
 	clust_size     = 4,
-	height_min     = -31000,
-	height_max     = -100,
+	y_min     = -31000,
+	y_max     = -100,
 	noise_threshhold = 0.4,
 	noise_params = {offset=0, scale=15, spread={x=130, y=130, z=130}, seed=24, octaves=3, persist=0.70}
 })
