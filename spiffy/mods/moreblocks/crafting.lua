@@ -437,7 +437,18 @@ minetest.register_craft({
 	}
 })
 
--- *** removed compressed cobble (conflicts with gstools)
+-- *** changed compressed cobble to grinder/compressor recipe
+
+if minetest.get_modpath("technic") then
+	technic.register_grinder_recipe(
+		{ input = { "moreblocks:cobble_compressed" },
+		output = "default:cobble 9" }
+	)
+	technic.register_compressor_recipe(
+		{ input = { "default:cobble 9" },
+		output = "moreblocks:cobble_compressed" }
+	)
+end
 
 minetest.register_craft({
 	type = "cooking", output = "moreblocks:tar", recipe = "default:gravel",
