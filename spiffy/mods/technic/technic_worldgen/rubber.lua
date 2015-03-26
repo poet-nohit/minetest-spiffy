@@ -81,7 +81,7 @@ minetest.register_abm({
 		minetest.remove_node(pos)
 		local p = {x=pos.x-4, y=pos.y, z=pos.z-4}
 		minetest.place_schematic(p, minetest.get_modpath("technic_worldgen")..
-			"/schematics/rubber.mts", "0", {}, false );
+			"/schematics/rubber.mts", "0", {}, false)
 	end
 })
 
@@ -90,12 +90,10 @@ minetest.register_abm({
 	interval = 4,
 	chance = 1,
 	action = function(pos, node)
-		if minetest.get_node_light(pos) > 7 then
 			minetest.remove_node(pos)
 			local p = {x=pos.x-4, y=pos.y, z=pos.z-4}
 			minetest.place_schematic(p, minetest.get_modpath("technic_worldgen")..
-				"/schematics/rubber.mts", "random", {}, false );
-		end
+				"/schematics/rubber.mts", "random", {}, false)
 	end
 })
 
