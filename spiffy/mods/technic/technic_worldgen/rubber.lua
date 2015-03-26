@@ -112,12 +112,12 @@ if technic.config:get_bool("enable_rubber_tree_generation") then
 	minetest.register_decoration({
 		deco_type = "simple",
 		place_on = "group:soil",
-		sidelen = 8,
-		fill_ratio = 0.02,
+		sidelen = 80,
+		fill_ratio = 0.001,
 		decoration = "moretrees:rubber_tree_sapling_ongen",
 		height_max = 1,
-		y_min = 15,
-		y_max = 30,
+		y_min = 10,
+		y_max = 40,
 	})
 end
 
