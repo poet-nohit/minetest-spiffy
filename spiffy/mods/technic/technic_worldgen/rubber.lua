@@ -14,18 +14,6 @@ minetest.register_node(":moretrees:rubber_tree_sapling", {
 	sounds = default.node_sound_defaults(),
 })
 
-minetest.register_node(":moretrees:rubber_tree_sapling_ongen", {
-	description = S("Rubber Tree Sapling"),
-	drawtype = "plantlike",
-	tiles = {"technic_rubber_sapling.png"},
-	inventory_image = "technic_rubber_sapling.png",
-	wield_image = "technic_rubber_sapling.png",
-	paramtype = "light",
-	walkable = false,
-	groups = {dig_immediate=3, flammable=2},
-	sounds = default.node_sound_defaults(),
-})
-
 minetest.register_craft({
 	type = "fuel",
 	recipe = "moretrees:rubber_tree_sapling",
@@ -81,30 +69,19 @@ minetest.register_abm({
 		minetest.remove_node(pos)
 		local p = {x=pos.x-4, y=pos.y, z=pos.z-4}
 		minetest.place_schematic(p, minetest.get_modpath("technic_worldgen")..
-			"/schematics/rubber.mts", "0", {}, false)
-	end
-})
-
-minetest.register_abm({
-	nodenames = {"moretrees:rubber_tree_sapling_ongen"},
-	interval = 4,
-	chance = 1,
-	action = function(pos, node)
-		minetest.remove_node(pos)
-		local p = {x=pos.x-4, y=pos.y, z=pos.z-4}
-		minetest.place_schematic(p, minetest.get_modpath("technic_worldgen")..
 			"/schematics/rubber.mts", "random", {}, false)
 	end
 })
 
 if technic.config:get_bool("enable_rubber_tree_generation") then
 	minetest.register_decoration({
-		deco_type = "simple",
+		deco_type = "schematic",
 		place_on = "group:soil",
 		sidelen = 80,
 		fill_ratio = 0.001,
-		decoration = "moretrees:rubber_tree_sapling_ongen",
-		height_max = 1,
+		schematic = minetest.get_modpath("technic_worldgen").."/schematics/rubber.mts",
+		flags = "place_center_x, place_center_z",
+		rotation = "random",
 		y_min = 10,
 		y_max = 40,
 	})
