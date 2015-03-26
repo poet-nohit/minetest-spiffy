@@ -1,9 +1,15 @@
 -- Define Trunks and Wood
+
+-- *** drops like papyrus/cactus
+
 minetest.register_node("ethereal:acacia_trunk", {			-- Acacia Trunk (thanks to VanessaE for acacia textures)
 	description = "Acacia Trunk",
 	tiles = {"moretrees_acacia_trunk_top.png", "moretrees_acacia_trunk_top.png", "moretrees_acacia_trunk.png"},
 	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
 	sounds = default.node_sound_wood_defaults(),
+	after_dig_node = function(pos, node, metadata, digger)
+		default.dig_up(pos, node, digger)
+	end,
 	paramtype2 = "facedir",
 })
 
@@ -24,6 +30,9 @@ minetest.register_node("ethereal:willow_trunk", {		-- Willow Trunk
 	tiles = {"willow_trunk_top.png", "willow_trunk_top.png", "willow_trunk.png"},
 	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
 	sounds = default.node_sound_wood_defaults(),
+	after_dig_node = function(pos, node, metadata, digger)
+		default.dig_up(pos, node, digger)
+	end,
 	paramtype2 = "facedir",
 })
 
@@ -44,6 +53,9 @@ minetest.register_node("ethereal:redwood_trunk", {		-- Redwood Trunk
 	tiles = {"redwood_trunk_top.png", "redwood_trunk_top.png", "redwood_trunk.png"},
 	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
 	sounds = default.node_sound_wood_defaults(),
+	after_dig_node = function(pos, node, metadata, digger)
+		default.dig_up(pos, node, digger)
+	end,
 	paramtype2 = "facedir",
 })
 
@@ -64,6 +76,9 @@ minetest.register_node("ethereal:frost_tree", {			-- Frost Trunk
 	tiles = {"ethereal_frost_tree_top.png", "ethereal_frost_tree_top.png", "ethereal_frost_tree.png"},
 	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,put_out_fire=1},
 	sounds = default.node_sound_wood_defaults(),
+	after_dig_node = function(pos, node, metadata, digger)
+		default.dig_up(pos, node, digger)
+	end,
 	paramtype2 = "facedir",
 })
 
@@ -84,6 +99,9 @@ minetest.register_node("ethereal:yellow_trunk", {		-- Healing Trunk
 	tiles = {"yellow_tree_top.png", "yellow_tree_top.png", "yellow_tree.png"},
 	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,put_out_fire=1},
 	sounds = default.node_sound_wood_defaults(),
+	after_dig_node = function(pos, node, metadata, digger)
+		default.dig_up(pos, node, digger)
+	end,
 	paramtype2 = "facedir",
 })
 
@@ -104,6 +122,9 @@ minetest.register_node("ethereal:palm_trunk", {			-- Palm Trunk
 	tiles = {"moretrees_palm_trunk_top.png", "moretrees_palm_trunk_top.png", "moretrees_palm_trunk.png"},
 	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
 	sounds = default.node_sound_wood_defaults(),
+	after_dig_node = function(pos, node, metadata, digger)
+		default.dig_up(pos, node, digger)
+	end,
 	paramtype2 = "facedir",
 })
 
@@ -124,6 +145,9 @@ minetest.register_node("ethereal:banana_trunk", {		-- Banana Tree Trunk
 	tiles = {"banana_trunk_top.png", "banana_trunk_top.png", "banana_trunk.png"},
 	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
 	sounds = default.node_sound_wood_defaults(),
+	after_dig_node = function(pos, node, metadata, digger)
+		default.dig_up(pos, node, digger)
+	end,
 	paramtype2 = "facedir",
 })
 
@@ -144,6 +168,9 @@ minetest.register_node("ethereal:scorched_tree", {		-- Scorched Trunk
 	tiles = {"scorched_tree_top.png", "scorched_tree_top.png", "scorched_tree.png"},
 	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=1},
 	sounds = default.node_sound_wood_defaults(),
+	after_dig_node = function(pos, node, metadata, digger)
+		default.dig_up(pos, node, digger)
+	end,
 	paramtype2 = "facedir",
 })
 
@@ -152,5 +179,8 @@ minetest.register_node("ethereal:mushroom_trunk", {		-- Mushroom Trunk
 	tiles = {"mushroom_trunk_top.png", "mushroom_trunk_top.png", "mushroom_trunk.png"},
 	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
 	sounds = default.node_sound_wood_defaults(),
+	after_dig_node = function(pos, node, metadata, digger)
+		default.dig_up(pos, node, digger)
+	end,
 	paramtype2 = "facedir",
 })
