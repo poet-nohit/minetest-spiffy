@@ -90,10 +90,10 @@ minetest.register_abm({
 	interval = 4,
 	chance = 1,
 	action = function(pos, node)
-			minetest.remove_node(pos)
-			local p = {x=pos.x-4, y=pos.y, z=pos.z-4}
-			minetest.place_schematic(p, minetest.get_modpath("technic_worldgen")..
-				"/schematics/rubber.mts", "random", {}, false)
+		minetest.remove_node(pos)
+		local p = {x=pos.x-4, y=pos.y, z=pos.z-4}
+		minetest.place_schematic(p, minetest.get_modpath("technic_worldgen")..
+			"/schematics/rubber.mts", "random", {}, false)
 	end
 })
 
