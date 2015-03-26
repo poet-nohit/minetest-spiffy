@@ -14,6 +14,18 @@ minetest.register_node(":moretrees:rubber_tree_sapling", {
 	sounds = default.node_sound_defaults(),
 })
 
+minetest.register_node(":moretrees:rubber_tree_sapling_ongen", {
+	description = S("Rubber Tree Sapling"),
+	drawtype = "plantlike",
+	tiles = {"technic_rubber_sapling.png"},
+	inventory_image = "technic_rubber_sapling.png",
+	wield_image = "technic_rubber_sapling.png",
+	paramtype = "light",
+	walkable = false,
+	groups = {dig_immediate=3, flammable=2},
+	sounds = default.node_sound_defaults(),
+})
+
 minetest.register_craft({
 	type = "fuel",
 	recipe = "moretrees:rubber_tree_sapling",
@@ -84,20 +96,28 @@ minetest.register_abm({
 	end
 })
 
+minetest.register_abm({
+	nodenames = {"moretrees:rubber_tree_sapling_ongen"},
+	interval = 10,
+	chance = 1,
+	action = function(pos, node)
+		if minetest.get_node_light(pos) > 7 then
+			minetest.remove_node(pos)
+			minetest.spawn_tree(pos, technic.rubber_tree_model)
+		end
+	end
+})
+
 if technic.config:get_bool("enable_rubber_tree_generation") then
-	minetest.register_on_generated(function(minp, maxp, blockseed)
-		if math.random(1, 100) > 5 then
-			return
-		end
-		local tmp = {
-				x = (maxp.x - minp.x) / 2 + minp.x,
-				y = (maxp.y - minp.y) / 2 + minp.y,
-				z = (maxp.z - minp.z) / 2 + minp.z}
-		local pos = minetest.find_node_near(tmp, maxp.x - minp.x,
-				{"default:dirt_with_grass"})
-		if pos ~= nil then
-			minetest.spawn_tree({x=pos.x, y=pos.y+1, z=pos.z}, technic.rubber_tree_model)
-		end
-	end)
+	minetest.register_decoration({
+		deco_type = "simple",
+		place_on = "group:soil",
+		sidelen = 8,
+		fill_ratio = 0.02,
+		decoration = "moretrees:rubber_tree_sapling_ongen",
+		height_max = 1,
+		y_min = 15,
+		y_max = 30,
+	})
 end
 
