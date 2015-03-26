@@ -73,37 +73,28 @@ minetest.register_node(":moretrees:rubber_tree_leaves", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
-technic.rubber_tree_model={
-	axiom = "FFFFA",
-	rules_a = "[&FFBFA]////[&BFFFA]////[&FBFFA]",
-	rules_b = "[&FFA]////[&FFA]////[&FFA]",
-	trunk = "moretrees:rubber_tree_trunk",
-	leaves = "moretrees:rubber_tree_leaves",
-	angle = 35,
-	iterations = 3,
-	random_level = 1,
-	trunk_type = "double",
-	thin_branches = true
-}
-
 minetest.register_abm({
 	nodenames = {"moretrees:rubber_tree_sapling"},
 	interval = 60,
 	chance = 20,
 	action = function(pos, node)
 		minetest.remove_node(pos)
-		minetest.spawn_tree(pos, technic.rubber_tree_model)
+		local p = {x=pos.x-4, y=pos.y, z=pos.z-4}
+		minetest.place_schematic(p, minetest.get_modpath("technic_worldgen")..
+			"/schematics/rubber.mts", "0", {}, false );
 	end
 })
 
 minetest.register_abm({
 	nodenames = {"moretrees:rubber_tree_sapling_ongen"},
-	interval = 10,
+	interval = 4,
 	chance = 1,
 	action = function(pos, node)
 		if minetest.get_node_light(pos) > 7 then
 			minetest.remove_node(pos)
-			minetest.spawn_tree(pos, technic.rubber_tree_model)
+			local p = {x=pos.x-4, y=pos.y, z=pos.z-4}
+			minetest.place_schematic(p, minetest.get_modpath("technic_worldgen")..
+				"/schematics/rubber.mts", "random", {}, false );
 		end
 	end
 })
