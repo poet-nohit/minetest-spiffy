@@ -1,4 +1,4 @@
-worldedit = worldedit or {}
+worldedit = {}
 local minetest = minetest --local copy of global
 
 --modifies positions `pos1` and `pos2` so that each component of `pos1` is less than or equal to its corresponding conent of `pos2`, returning two new positions

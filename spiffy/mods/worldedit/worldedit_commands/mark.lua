@@ -72,9 +72,9 @@ worldedit.mark_region = function(pos1, pos2)
 	local manip = minetest.get_voxel_manip()
 	manip:read_from_map(pos1, pos2)
 
-	if worldedit.marker[name] ~= nil then --marker already exists
+--	if worldedit.marker[name] ~= nil then --marker already exists
 		--wip: remove markers
-	end
+--	end
 	if pos1 ~= nil and pos2 ~= nil then
 		--wip: place markers
 	end

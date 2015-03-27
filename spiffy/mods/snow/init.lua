@@ -1,3 +1,4 @@
+--[[ *** Conflicts with ethereal snowbrick
 minetest.register_node("snow:snow_brick", {
 	description = "Snow Brick",
 	tiles = {"snow_snow_brick.png"},
@@ -12,6 +13,7 @@ minetest.register_craft({
         {"default:snowblock", "default:snowblock"},
     },
 })
+--]]
 
 minetest.register_ore({
 	ore_type       = "scatter",

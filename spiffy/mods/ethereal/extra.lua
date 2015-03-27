@@ -113,24 +113,10 @@ minetest.register_craft({
 })
 
 -- Ladder (Changes default recipe to give 2x ladders instead of only 1)
-minetest.register_craft({
-	output = "default:ladder 2",
-	recipe = {
-		{"group:stick", "", "group:stick"},
-		{"group:stick", "group:stick", "group:stick"},
-		{"group:stick", "", "group:stick"},
-	}
-})
+-- *** removed (conflicts with moreblocks)
 
 -- Signs (Changes default recipe to give 4x signs instead of only 1)
-minetest.register_craft({
-	output = "default:sign_wall 4",
-	recipe = {
-		{"group:wood", "group:wood", "group:wood"},
-		{"group:wood", "group:wood", "group:wood"},
-		{"", "group:stick", ""},
-	}
-})
+-- *** removed (conflicts with moreblocks)
 
 -- Charcoal Lump
 -- *** removed (conflicts with gstools)

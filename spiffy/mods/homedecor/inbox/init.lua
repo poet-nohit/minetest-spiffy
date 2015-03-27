@@ -106,4 +106,6 @@ function inbox.get_inbox_insert_formspec(pos)
 	return formspec
 end
 
-print("[Mod]Inbox Loaded!")
+if minetest.setting_getbool("log_mods") then
+	print("[Mod]Inbox Loaded!")
+end

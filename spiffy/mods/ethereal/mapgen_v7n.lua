@@ -12,7 +12,9 @@ minetest.register_biome({
 	y_min			= 1,						y_max				= 71,
 	heat_point		= 45.0,						humidity_point		= 75.0,
 })
-print ("Ethereal Bamboo Enabled")
+if minetest.setting_getbool("log_mods") then
+	print ("Ethereal Bamboo Enabled")
+end
 end
 
 if ethereal.mesa == 1 then
@@ -23,7 +25,9 @@ minetest.register_biome({
 	y_min     = 2,							y_max     = 71,
 	heat_point     = 25.0,						humidity_point = 28.0,
 })
-print ("Ethereal Mesa Enabled")
+if minetest.setting_getbool("log_mods") then
+	print ("Ethereal Mesa Enabled")
+end
 end
 
 if ethereal.alpine == 1 then
@@ -34,7 +38,9 @@ minetest.register_biome({
 	y_min     = 40,						y_max     = 90,
 	heat_point     = 10.0,						humidity_point = 40.0,
 })
-print ("Ethereal Alpine Enabled")
+if minetest.setting_getbool("log_mods") then
+	print ("Ethereal Alpine Enabled")
+end
 end
 
 if ethereal.healing == 1 then
@@ -45,7 +51,9 @@ minetest.register_biome({
 	y_min     = 75,						y_max     = 140,
 	heat_point     = 10.0,						humidity_point = 40.0,
 })
-print ("Ethereal Healing Enabled")
+if minetest.setting_getbool("log_mods") then
+	print ("Ethereal Healing Enabled")
+end
 end
 
 if ethereal.snowy == 1 then
@@ -56,7 +64,9 @@ minetest.register_biome({
 	y_min     = 5,							y_max     = 40,
 	heat_point     = 10.0,						humidity_point = 40.0,
 })
-print ("Ethereal Snowy Enabled")
+if minetest.setting_getbool("log_mods") then
+	print ("Ethereal Snowy Enabled")
+end
 end
 
 if ethereal.frost == 1 then
@@ -67,7 +77,9 @@ minetest.register_biome({
 	y_min     = 1,							y_max     = 71,
 	heat_point     = 10.0,						humidity_point = 40.0,
 })
-print ("Ethereal Frost Enabled")
+if minetest.setting_getbool("log_mods") then
+	print ("Ethereal Frost Enabled")
+end
 end
 
 if ethereal.grassy == 1 then
@@ -78,7 +90,9 @@ minetest.register_biome({
 	y_min     = 1,							y_max     = 91,
 	heat_point     = 13.0,						humidity_point = 40.0,
 })
-print ("Ethereal Grassy Enabled")
+if minetest.setting_getbool("log_mods") then
+	print ("Ethereal Grassy Enabled")
+end
 end
 
 if ethereal.caves == 1 then
@@ -89,7 +103,9 @@ minetest.register_biome({
 	y_min     = 4,							y_max     = 41,
 	heat_point     = 15.0,						humidity_point = 25.0,
 })
-print ("Ethereal Caves Enabled")
+if minetest.setting_getbool("log_mods") then
+	print ("Ethereal Caves Enabled")
+end
 end
 
 if ethereal.grayness == 1 then
@@ -100,7 +116,9 @@ minetest.register_biome({
 	y_min     = 1,							y_max     = 41,
 	heat_point     = 15.0,						humidity_point = 30.0,
 })
-print ("Ethereal Grayness Enabled")
+if minetest.setting_getbool("log_mods") then
+	print ("Ethereal Grayness Enabled")
+end
 end
 
 if ethereal.grassytwo == 1 then
@@ -111,7 +129,9 @@ minetest.register_biome({
 	y_min     = 1,							y_max     = 91,
 	heat_point     = 15.0,						humidity_point = 40.0,
 })
-print ("Ethereal GrassyTwo Enabled")
+if minetest.setting_getbool("log_mods") then
+	print ("Ethereal GrassyTwo Enabled")
+end
 end
 
 if ethereal.prairie == 1 then
@@ -122,7 +142,9 @@ minetest.register_biome({
 	y_min     = 3,							y_max     = 26,
 	heat_point     = 20.0,						humidity_point = 40.0,
 })
-print ("Ethereal Prairie Enabled")
+if minetest.setting_getbool("log_mods") then
+	print ("Ethereal Prairie Enabled")
+end
 end
 
 if ethereal.jumble == 1 then
@@ -133,7 +155,9 @@ minetest.register_biome({
 	y_min     = 1,							y_max     = 71,
 	heat_point     = 25.0,						humidity_point = 50.0,
 })
-print ("Ethereal Jumble Enabled")
+if minetest.setting_getbool("log_mods") then
+	print ("Ethereal Jumble Enabled")
+end
 end
 
 if ethereal.junglee == 1 then
@@ -144,7 +168,9 @@ minetest.register_biome({
 	y_min     = 1,							y_max     = 71,
 	heat_point     = 30.0,						humidity_point = 60.0,
 })
-print ("Ethereal Junglee Enabled")
+if minetest.setting_getbool("log_mods") then
+	print ("Ethereal Junglee Enabled")
+end
 end
 
 if ethereal.desert ==1 then
@@ -155,7 +181,9 @@ minetest.register_biome({
 	y_min     = 3,							y_max     = 23,
 	heat_point     = 35.0,						humidity_point = 20.0,
 })
-print ("Ethereal Desert Enabled")
+if minetest.setting_getbool("log_mods") then
+	print ("Ethereal Desert Enabled")
+end
 end
 
 if ethereal.grove == 1 then
@@ -166,7 +194,9 @@ minetest.register_biome({
 	y_min     = 3,							y_max     = 23,
 	heat_point     = 40.0,						humidity_point = 60.0,
 })
-print ("Ethereal Grove Enabled")
+if minetest.setting_getbool("log_mods") then
+	print ("Ethereal Grove Enabled")
+end
 end
 
 if ethereal.mushroom == 1 then
@@ -177,7 +207,9 @@ minetest.register_biome({
 	y_min     = 1,							y_max     = 50,
 	heat_point     = 45.0,						humidity_point = 65.0,
 })
-print ("Ethereal Mushroom Enabled")
+if minetest.setting_getbool("log_mods") then
+	print ("Ethereal Mushroom Enabled")
+end
 end
 
 if ethereal.desertstone == 1 then
@@ -188,7 +220,9 @@ minetest.register_biome({
 	y_min     = 3,							y_max     = 23,
 	heat_point     = 50.0,						humidity_point = 20.0,
 })
-print ("Ethereal DesertStone Enabled")
+if minetest.setting_getbool("log_mods") then
+	print ("Ethereal DesertStone Enabled")
+end
 end
 
 if ethereal.quicksand == 1 then
@@ -199,7 +233,9 @@ minetest.register_biome({
 	y_min		= 1,						y_max = 1,
 	heat_point		= 50,						humidity_point = 38,
 })
-print ("Ethereal Quicksand Enabled")
+if minetest.setting_getbool("log_mods") then
+	print ("Ethereal Quicksand Enabled")
+end
 end
 
 if ethereal.lake == 1 then
@@ -211,7 +247,9 @@ minetest.register_biome({
 	y_min		= -31000,					y_max = 3,
 	heat_point		= 50,						humidity_point = 40,
 })
-print ("Ethereal Lake Enabled")
+if minetest.setting_getbool("log_mods") then
+	print ("Ethereal Lake Enabled")
+end
 end
 
 if ethereal.plains == 1 then
@@ -222,7 +260,9 @@ minetest.register_biome({
 	y_min     = 3,							y_max     = 61,
 	heat_point     = 55.0,						humidity_point = 25.0,
 })
-print ("Ethereal Plains Enabled")
+if minetest.setting_getbool("log_mods") then
+	print ("Ethereal Plains Enabled")
+end
 end
 
 if ethereal.fiery == 1 then
@@ -233,7 +273,9 @@ minetest.register_biome({
 	y_min     = 5,							y_max     = 65,
 	heat_point     = 80.0,						humidity_point = 10.0,
 })
-print ("Ethereal Fiery Enabled")
+if minetest.setting_getbool("log_mods") then
+	print ("Ethereal Fiery Enabled")
+end
 end
 
 if ethereal.sandclay == 1 then
@@ -244,7 +286,9 @@ minetest.register_biome({
 	y_min     = 1,							y_max     = 11,
 	heat_point     = 65.0,						humidity_point = 2.0,
 })
-print ("Ethereal SandClay Enabled")
+if minetest.setting_getbool("log_mods") then
+	print ("Ethereal SandClay Enabled")
+end
 end
 
 -- Schematics Decoration

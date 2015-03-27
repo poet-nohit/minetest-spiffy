@@ -126,7 +126,9 @@ function mesecon.receptor_off(pos, rules)
 end
 
 
-print("[OK] Mesecons")
+if minetest.setting_getbool("log_mods") then
+	print("[OK] Mesecons")
+end
 
 -- Deprecated stuff
 -- To be removed in future releases

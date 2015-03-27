@@ -170,7 +170,9 @@ minetest.register_abm({
 })
 
 else
-	print ("[MOD] Ethereal - Detected and using Farming Redo mod")
+	if minetest.setting_getbool("log_mods") then
+		print ("[MOD] Ethereal - Detected and using Farming Redo mod")
+	end
 end
 
 -- Temporary compatibility lines for Xanadu server

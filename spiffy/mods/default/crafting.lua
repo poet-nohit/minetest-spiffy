@@ -36,6 +36,7 @@ minetest.register_craft({
 	}
 })
 
+--[[  *** redefined in moreblocks
 minetest.register_craft({
 	output = 'default:sign_wall',
 	recipe = {
@@ -44,6 +45,7 @@ minetest.register_craft({
 		{'', 'group:stick', ''},
 	}
 })
+--]]
 
 minetest.register_craft({
 	output = 'default:torch 4',
@@ -516,6 +518,7 @@ minetest.register_craft({
 	}
 })
 
+--[[  *** redefined in moreblocks
 minetest.register_craft({
 	output = 'default:ladder',
 	recipe = {
@@ -524,6 +527,7 @@ minetest.register_craft({
 		{'group:stick', '', 'group:stick'},
 	}
 })
+--]]
 
 minetest.register_craft({
 	output = 'default:mese',

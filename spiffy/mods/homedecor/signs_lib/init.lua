@@ -947,7 +947,9 @@ function signs_lib.register_fence_with_sign(fencename, fencewithsignname)
 	minetest.register_node(":"..fencename, def)
 	minetest.register_node(":"..fencewithsignname, def_sign)
 	table.insert(signs_lib.sign_node_list, fencewithsignname)
-	print(S("Registered %s and %s"):format(fencename, fencewithsignname))
+	if minetest.setting_getbool("log_mods") then
+		print(S("Registered %s and %s"):format(fencename, fencewithsignname))
+	end
 end
 
 build_char_db()

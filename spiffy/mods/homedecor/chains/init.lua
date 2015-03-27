@@ -1,4 +1,6 @@
-print("[Chains] v1.3")
+if minetest.setting_getbool("log_mods") then
+	print("[Chains] v1.3")
+end
 
 local chains_sbox = {
 	type = "fixed",

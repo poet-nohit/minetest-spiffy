@@ -111,5 +111,7 @@ if pipeworks.enable_autocrafter then dofile(pipeworks.modpath.."/autocrafter.lua
 
 minetest.register_alias("pipeworks:pipe", "pipeworks:pipe_110000_empty")
 
-print("Pipeworks loaded!")
+if minetest.setting_getbool("log_mods") then
+	print("Pipeworks loaded!")
+end
 

@@ -152,4 +152,6 @@ dofile(homedecor.modpath.."/exterior.lua")
 
 dofile(homedecor.modpath.."/handlers/locked.lua")
 
-print("[HomeDecor] "..S("Loaded!"))
+if minetest.setting_getbool("log_mods") then
+	print("[HomeDecor] "..S("Loaded!"))
+end
