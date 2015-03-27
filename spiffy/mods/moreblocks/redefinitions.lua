@@ -33,6 +33,7 @@ minetest.register_craft({
 	}
 })
 
+--[[ *** too cheap
 minetest.register_craft({
 	output = "default:rail 24",
 	recipe = {
@@ -41,6 +42,7 @@ minetest.register_craft({
 		{"default:steel_ingot", "", "default:steel_ingot"},
 	}
 })
+--]]
 
 minetest.register_craft({
 	type = "toolrepair",
