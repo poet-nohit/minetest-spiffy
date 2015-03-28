@@ -36,6 +36,22 @@ local function inject_items (pos)
 				end
 			end
 		end
+		if mode=="pairs" then
+			local i=0
+			for _,stack in ipairs(inv:get_list("main")) do
+			i=i+1
+				if stack then
+				local item0=stack:to_table()
+				if item0 and stack:get_count() > 1 then 
+					item0["count"] = "2"
+					technic.tube_inject_item(pos, pos, vector.new(0, -1, 0), item0)
+					stack:take_item(2)
+					inv:set_stack("main", i, stack)
+					return
+					end
+				end
+			end
+		end
 		
 end
 
@@ -50,13 +66,16 @@ minetest.register_craft({
 
 local function set_injector_formspec(meta)
 	local is_stack = meta:get_string("mode") == "whole stacks"
+	local is_single = meta:get_string("mode") == "single items"
 	meta:set_string("formspec",
 			"invsize[8,9;]"..
 			"item_image[0,0;1,1;technic:injector]"..
 			"label[1,0;"..S("Self-Contained Injector").."]"..
 			(is_stack and
 				"button[0,1;2,1;mode_item;"..S("Stackwise").."]" or
-				"button[0,1;2,1;mode_stack;"..S("Itemwise").."]")..
+			is_single and
+				"button[0,1;2,1;mode_pairs;"..S("Itemwise").."]" or
+				"button[0,1;2,1;mode_stack;".."Pairs".."]")..
 			"list[current_name;main;0,2;8,2;]"..
 			"list[current_player;main;0,5;8,4;]")
 end
@@ -93,6 +112,7 @@ minetest.register_node("technic:injector", {
 		local meta = minetest.get_meta(pos)
 		if fields.mode_item then meta:set_string("mode", "single items") end
 		if fields.mode_stack then meta:set_string("mode", "whole stacks") end
+		if fields.mode_pairs then meta:set_string("mode", "pairs") end
 		set_injector_formspec(meta)
 	end,
 	allow_metadata_inventory_put = technic.machine_inventory_put,
