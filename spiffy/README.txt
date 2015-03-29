@@ -75,6 +75,8 @@ technic: by RealBadAngel
   https://forum.minetest.net/viewtopic.php?f=11&t=2538
 throwing: by PilzAdam
   https://forum.minetest.net/viewtopic.php?f=11&t=2805
+torches: by BlockMen
+  https://forum.minetest.net/viewtopic.php?f=11&t=6099
 unified_inventory: by RealBadAngel
   https://forum.minetest.net/viewtopic.php?f=11&t=3933
 worldedit: by sfan5
