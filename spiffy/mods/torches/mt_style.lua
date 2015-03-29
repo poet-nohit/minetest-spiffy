@@ -106,7 +106,7 @@ minetest.register_abm({
 
 -- water drops torches (TenPlus1)
 minetest.register_abm({
-   nodenames = {"default:torch"},
+   nodenames = {"torches:floor","torches:wall"},
    neighbors = {"default:water_source", "default:water_flowing"},
    interval = 1, chance = 1,
 
