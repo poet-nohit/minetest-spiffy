@@ -11,7 +11,7 @@ mobs:register_mob("mobs:chicken", {
 	-- textures and model
 	collisionbox = {-0.3, -0.75, -0.3, 0.3, 0.1, 0.3},
 	visual = "mesh",
-	mesh = "chicken.x",
+	mesh = "mobs_chicken.x",
 	drawtype = "front",
 	textures = {
 		{"mobs_chicken.png", "mobs_chicken.png", "mobs_chicken.png", "mobs_chicken.png",
@@ -54,7 +54,7 @@ mobs:register_mob("mobs:chicken", {
 	-- follows wheat
 	follow = "farming:seed_wheat", view_range = 5,
 	-- replace air with egg (lay)
-	replace_rate = 1000,
+	replace_rate = 2000,
 	replace_what = {"air"},
 	replace_with = "mobs:egg",
 	-- right click to pick up chicken
@@ -67,6 +67,9 @@ mobs:register_mob("mobs:chicken", {
 				clicker:set_wielded_item(tool)
 			end
 			self.food = (self.food or 0) + 1
+			if self.child == true then
+				self.hornytimer = self.hornytimer + 10
+			end
 			if self.food >= 8 then
 				self.food = 0
 				if self.child == false then self.horny = true end
@@ -77,7 +80,8 @@ mobs:register_mob("mobs:chicken", {
 			return tool
 		end
 
-		if clicker:is_player() and clicker:get_inventory() then
+		if clicker:is_player() and clicker:get_inventory() and self.child == false
+		and clicker:get_inventory():room_for_item("main", "mobs:chicken") then
 			clicker:get_inventory():add_item("main", "mobs:chicken")
 			self.object:remove()
 		end

@@ -33,6 +33,8 @@ mobs:register_mob("mobs:cow", {
 	drops = {
 		{name = "mobs:meat_raw",
 		chance = 1, min = 5, max = 10},
+		{name = "mobs:leather",
+		chance = 1, min = 0, max = 3},
 	},
 	-- damaged by
 	water_damage = 1,
@@ -57,8 +59,16 @@ mobs:register_mob("mobs:cow", {
 		local tool = clicker:get_wielded_item()
 		if tool:get_name() == "bucket:bucket_empty" and self.child == false then
 			if self.gotten then return end
-			clicker:get_inventory():remove_item("main", "bucket:bucket_empty")
-			clicker:get_inventory():add_item("main", "mobs:bucket_milk")
+			local inv = clicker:get_inventory()
+			inv:remove_item("main", "bucket:bucket_empty")
+			-- if room add bucket of milk to inventory, otherwise drop as item
+			if inv:room_for_item("main", {name="mobs:bucket_milk"}) then
+				clicker:get_inventory():add_item("main", "mobs:bucket_milk")
+			else
+				local pos = self.object:getpos()
+				pos.y = pos.y + 0.5
+				minetest.add_item(pos, {name = "mobs:bucket_milk"})
+			end
 			self.gotten = true -- milked
 		end
 		if tool:get_name() == "farming:wheat" then -- and self.gotten then
@@ -67,6 +77,9 @@ mobs:register_mob("mobs:cow", {
 				clicker:set_wielded_item(tool)
 			end
 			self.food = (self.food or 0) + 1
+			if self.child == true then
+				self.hornytimer = self.hornytimer + 10
+			end
 			if self.food >= 8 then
 				self.food = 0
 				if self.child == false then self.horny = true end
@@ -83,6 +96,12 @@ mobs:register_mob("mobs:cow", {
 mobs:register_spawn("mobs:cow", {"default:dirt_with_grass", "ethereal:green_dirt_top"}, 20, 0, 11000, 1, 31000)
 -- register spawn egg
 mobs:register_egg("mobs:cow", "Cow", "default_grass.png", 1)
+
+-- Leather
+minetest.register_craftitem("mobs:leather", {
+	description = "Leather",
+	inventory_image = "mobs_leather.png",
+})
 
 -- Bucket of Milk
 minetest.register_craftitem("mobs:bucket_milk", {

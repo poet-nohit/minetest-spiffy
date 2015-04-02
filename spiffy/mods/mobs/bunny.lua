@@ -62,7 +62,7 @@ mobs:register_mob("mobs:bunny", {
 			end
 			return
 		end
-		if clicker:is_player() and clicker:get_inventory() then
+		if clicker:is_player() and clicker:get_inventory() and clicker:get_inventory():room_for_item("main", "mobs:bunny") then
 			clicker:get_inventory():add_item("main", "mobs:bunny")
 			self.object:remove()
 		end
@@ -70,4 +70,4 @@ mobs:register_mob("mobs:bunny", {
 })
 
 mobs:register_spawn("mobs:bunny", {"default:dirt_with_grass", "ethereal:prairie_dirt"}, 20, 8, 9000, 1, 31000)
-mobs:register_egg("mobs:bunny", "bunny", "mobs_bunny_inv.png", 0)
+mobs:register_egg("mobs:bunny", "Bunny", "mobs_bunny_inv.png", 0)
