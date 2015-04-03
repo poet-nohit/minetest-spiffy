@@ -47,6 +47,8 @@ homedecor: by VanessaE
   https://forum.minetest.net/viewtopic.php?f=11&t=2041
 hud: by BlockMen
   https://forum.minetest.net/viewtopic.php?f=11&t=6342
+hunger: by BlockMen
+  https://forum.minetest.net/viewtopic.php?f=11&t=6342
 item_drop: by PilzAdam and Calinou
   https://forum.minetest.net/viewtopic.php?f=11&t=9638
 itemframes: by Zeg9 and VanessaE
