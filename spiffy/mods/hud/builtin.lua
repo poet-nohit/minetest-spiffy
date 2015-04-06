@@ -19,7 +19,7 @@ hud.show_armor = minetest.get_modpath("3d_armor") ~= nil
 
 -- check if some settings are invalid
 local enable_hunger = minetest.setting_getbool("hud_hunger_enable")
-if (enable_hunger == true or HUD_ENABLE_HUNGER == true) and not hud.show_hunger then
+if (enable_hunger == true) and not hud.show_hunger then
 	hud.notify_hunger(5)
 end
 
@@ -80,7 +80,7 @@ if damage_enabled then
     })
 
     local start_value = 0
-    if show_hunger then
+    if hud.show_hunger then
 	start_value = 20
     end
 
