@@ -1,5 +1,6 @@
 -- Override default Papyrus to make it walkable
-minetest.override_item("default:papyrus", {walkable=true, sunlight_propagates=true})
+-- *** WTF?
+--minetest.override_item("default:papyrus", {walkable=true, sunlight_propagates=true})
 
 
 -- Have Papyrus grow up to 4 high and Bamboo grow up to 5 in height (shared abm)
