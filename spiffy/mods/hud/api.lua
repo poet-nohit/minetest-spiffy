@@ -185,7 +185,8 @@ end
 minetest.register_on_joinplayer(function(player)
 
 	-- first: hide the default statbars
-	player:hud_set_flags({healthbar = false, breathbar = false})
+	player:hud_set_flags({crosshair = true, hotbar = true, healthbar = false,
+			wielditem = true, breathbar = false})
 
 	-- now add the backgrounds (e.g. for statbars)
 	for _,item in pairs(sb_bg) do
