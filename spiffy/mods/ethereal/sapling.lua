@@ -14,7 +14,7 @@ ethereal.register_sapling = function( sapling_node_name, sapling_descr, sapling_
 			sunlight_propagates = true,
 			walkable = false,
 			selection_box = {type = "fixed",fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},},
-			groups = {snappy=2,dig_immediate=3,flammable=2,ethereal_sapling=1,attached_node=1},
+			groups = {snappy=2,dig_immediate=3,flammable=2,ethereal_sapling=1,sapling=1,attached_node=1},
 			sounds = default.node_sound_defaults(),
 		})
 	end
