@@ -82,7 +82,7 @@ minetest.register_abm({
 			ethereal.place_tree(pos, 5, 5, "acaciatree")
 		-- *** certain trees are too generic to be so picky
 		elseif (node.name == "ethereal:tree_sapling") then
-			ethereal.place_tree(pos, 2, 2, "tree") then
+			ethereal.place_tree(pos, 2, 2, "tree")
 		elseif (node.name == "ethereal:big_tree_sapling") then
 			ethereal.place_tree(pos, 4, 4, "bigtree")
 
