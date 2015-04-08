@@ -21,7 +21,7 @@ minetest.register_node("ethereal:acacia_leaves", {
 	drop = {
 		max_items = 1,
 		items = {
-			{	items = {"ethereal:acacia_sapling"}, rarity = 50},
+			{	items = {"ethereal:acacia_sapling"}, rarity = 10},
 			{	items = {"ethereal:acacia_leaves"}}
 		}
 	},
@@ -42,7 +42,7 @@ minetest.register_node("ethereal:willow_twig", {
 	drop = {
 		max_items = 1,
 		items = {
-			{	items = {"ethereal:willow_sapling"}, rarity = 50},
+			{	items = {"ethereal:willow_sapling"}, rarity = 20},
 			{	items = {"ethereal:willow_twig"}}
 		}
 	},
@@ -63,7 +63,7 @@ minetest.register_node("ethereal:redwood_leaves", {
 	drop = {
 		max_items = 1,
 		items = {
-			{	items = {"ethereal:redwood_sapling"}, rarity = 50},
+			{	items = {"ethereal:redwood_sapling"}, rarity = 20},
 			{	items = {"ethereal:redwood_leaves"}}
 		}
 	},
@@ -84,7 +84,7 @@ minetest.register_node(":default:leaves", {
 	drop = {
 		max_items = 1,
 		items = {
-			{	items = {"ethereal:tree_sapling"}, rarity = 20},
+			{	items = {"ethereal:tree_sapling"}, rarity = 10},
 			{	items = {"default:leaves"}}
 		}
 	},
@@ -105,7 +105,7 @@ minetest.register_node("ethereal:orange_leaves", {
 	drop = {
 		max_items = 1,
 		items = {
-			{	items = {"ethereal:orange_tree_sapling"}, rarity = 20},
+			{	items = {"ethereal:orange_tree_sapling"}, rarity = 10},
 			{	items = {"ethereal:orange_leaves"}}
 		}
 	},
@@ -147,7 +147,7 @@ minetest.register_node("ethereal:bananaleaves", {
 	drop = {
 		max_items = 1,
 		items = {
-			{	items = {"ethereal:banana_tree_sapling"}, rarity = 20},
+			{	items = {"ethereal:banana_tree_sapling"}, rarity = 10},
 			{	items = {"ethereal:bananaleaves"}}
 		}
 	},
@@ -168,7 +168,7 @@ minetest.register_node("ethereal:yellowleaves", {
 	drop = {
 		max_items = 1,
 		items = {
-			{	items = {"ethereal:yellow_tree_sapling"}, rarity = 50},
+			{	items = {"ethereal:yellow_tree_sapling"}, rarity = 10},
 			{	items = {"ethereal:yellowleaves"}}
 		}
 	},
@@ -192,7 +192,7 @@ minetest.register_node("ethereal:palmleaves", {
 	drop = {
 		max_items = 1,
 		items = {
-			{	items = {"ethereal:palm_sapling"}, rarity = 20},
+			{	items = {"ethereal:palm_sapling"}, rarity = 10},
 			{	items = {"ethereal:palmleaves"}}
 		}
 	},
@@ -213,7 +213,7 @@ minetest.register_node("ethereal:pineleaves", {
 	drop = {
 		max_items = 1,
 		items = {
-			{	items = {"ethereal:pine_tree_sapling"}, rarity = 20},
+			{	items = {"ethereal:pine_tree_sapling"}, rarity = 10},
 			{	items = {"ethereal:pine_nuts"}, rarity = 5},
 			{	items = {"ethereal:pineleaves"},}
 		}
