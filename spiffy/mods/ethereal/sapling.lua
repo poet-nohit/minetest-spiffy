@@ -58,14 +58,10 @@ minetest.register_abm({
 		-- Check if Sapling is growing on correct substrate
 		if (node.name == "ethereal:yellow_tree_sapling" and under == "default:dirt_with_snow") then
 			ethereal.place_tree(pos, 4, 4, "yellowtree")
-		elseif (node.name == "ethereal:tree_sapling" and under == "ethereal:green_dirt") then
-			ethereal.place_tree(pos, 2, 2, "tree")
 		elseif (node.name == "ethereal:jungle_tree_sapling" and under == "ethereal:jungle_dirt") then
 			ethereal.place_tree(pos, 6, 6, "jungletree")
 		elseif (node.name == "ethereal:pine_tree_sapling" and under == "ethereal:cold_dirt") then
 			ethereal.place_tree(pos, 3, 3, "pinetree")
-		elseif (node.name == "ethereal:big_tree_sapling" and under == "ethereal:green_dirt") then
-			ethereal.place_tree(pos, 4, 4, "bigtree")
 		elseif (node.name == "ethereal:banana_tree_sapling" and under == "ethereal:grove_dirt") then
 			ethereal.place_tree(pos, 3, 3, "bananatree")
 		elseif (node.name == "ethereal:frost_tree_sapling" and under == "ethereal:crystal_dirt") then
@@ -84,6 +80,11 @@ minetest.register_abm({
 			ethereal.place_tree(pos, 1, 1, "orangetree")
 		elseif (node.name == "ethereal:acacia_sapling" and under == "default:desert_sand") then
 			ethereal.place_tree(pos, 5, 5, "acaciatree")
+		-- *** certain trees are too generic to be so picky
+		elseif (node.name == "ethereal:tree_sapling") then
+			ethereal.place_tree(pos, 2, 2, "tree") then
+		elseif (node.name == "ethereal:big_tree_sapling") then
+			ethereal.place_tree(pos, 4, 4, "bigtree")
 
 		end
 
