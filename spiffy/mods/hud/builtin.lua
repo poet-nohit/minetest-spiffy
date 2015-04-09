@@ -82,9 +82,10 @@ if damage_enabled then
     })
 
     local start_value = 0
-    if hud.show_hunger then
-	start_value = 20
-    end
+-- *** this prevents bg.max from getting initialized properly
+--    if hud.show_hunger then
+--	start_value = 20
+--    end
 
     hud.register("hunger", {
 	hud_elem_type = "statbar",
