@@ -46,6 +46,15 @@ minetest.register_craft({
 	}
 })
 
+minetest.register_craft({
+	type = "shapeless",
+	output = 'fake_fire:smokeless_chimney_top_stone',
+	recipe = {
+			"default:torch",
+			"moreblocks:slab_stone",
+	}
+})
+
 -- SANDSTONE CHIMNEY TOP
 minetest.register_craft({
 	type = "shapeless",
@@ -53,6 +62,15 @@ minetest.register_craft({
 	recipe = {
 			"default:torch",
 			"stairs:slab_sandstone",
+	}
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = 'fake_fire:smokeless_chimney_top_sandstone',
+	recipe = {
+			"default:torch",
+			"moreblocks:slab_sandstone",
 	}
 })
 
