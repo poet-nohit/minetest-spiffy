@@ -1,96 +1,100 @@
 -- *** adjusted heights to work around the bedrock being at -256
--- I don't think the noise params work out with default gen
--- it seems to weird to find more diamonds than chromium
+-- everything is pretty much blobs at this point
+
+local chromium_params = {offset=0.35, scale=0.2, spread = {x=5, y=5, z=5},
+		seed=421, octaves=1, persist=0.5}
+local chromium_threshhold = 0
+
+local zinc_params = {offset=0.35, scale=0.2, spread = {x=5, y=5, z=5},
+		seed=422, octaves=1, persist=0.5}
+local zinc_threshhold = 0
+
+local lead_params = {offset=0.35, scale=0.2, spread = {x=5, y=5, z=5},
+		seed=423, octaves=1, persist=0.5}
+local lead_threshhold = 0
 
 minetest.register_ore({
-	ore_type         = "scatter",
-	ore              = "technic:mineral_uranium",
-	wherein          = "default:stone",
-	clust_scarcity   = 8*8*8,
-	clust_num_ores   = 4,
-	clust_size       = 3,
-	y_min       = -255,
-	y_max       = -50,
+	ore_type		= "blob",
+	ore				= "technic:mineral_chromium",
+	wherein			= "default:stone",
+	clust_scarcity	= 25*25*25,
+	clust_size		= 7,
+	y_min			= -127,
+	y_max			= -64,
+	noise_threshhold	= chromium_threshhold,
+	noise_params		= chromium_params,
 })
 
 minetest.register_ore({
-	ore_type         = "scatter",
-	ore              = "technic:mineral_chromium",
-	wherein          = "default:stone",
-	clust_scarcity   = 11*11*11,
-	clust_num_ores   = 2,
-	clust_size       = 3,
-	y_min       = -127,
-	y_max       = -64,
+	ore_type		= "blob",
+	ore				= "technic:mineral_chromium",
+	wherein			= "default:stone",
+	clust_scarcity	= 24*24*24,
+	clust_size		= 7,
+	y_min			= -300,
+	y_max			= -128,
+	noise_threshhold	= chromium_threshhold,
+	noise_params		= chromium_params,
 })
 
 minetest.register_ore({
-	ore_type         = "scatter",
-	ore              = "technic:mineral_chromium",
-	wherein          = "default:stone",
-	clust_scarcity   = 8*8*8,
-	clust_num_ores   = 2,
-	clust_size       = 3,
-	y_min       = -31000,
-	y_max       = -128,
-	flags            = "absheight",
+	ore_type		= "blob",
+	ore				= "technic:mineral_zinc",
+	wherein			= "default:stone",
+	clust_scarcity	= 25*25*25,
+	clust_size		= 9,
+	y_min			= -32,
+	y_max			= 2,
+	noise_threshhold	= zinc_threshhold,
+	noise_params		= zinc_params,
 })
 
 minetest.register_ore({
-	ore_type         = "scatter",
-	ore              = "technic:mineral_zinc",
-	wherein          = "default:stone",
-	clust_scarcity   = 8*8*8,
-	clust_num_ores   = 4,
-	clust_size       = 3,
-	y_min       = -32,
-	y_max       = 2,
+	ore_type		= "blob",
+	ore				= "technic:mineral_zinc",
+	wherein			= "default:stone",
+	clust_scarcity	= 24*24*24,
+	clust_size		= 8,
+	y_min			= -300,
+	y_max			= -32,
+	noise_threshhold	= zinc_threshhold,
+	noise_params		= zinc_params,
 })
 
 minetest.register_ore({
-	ore_type         = "scatter",
-	ore              = "technic:mineral_zinc",
-	wherein          = "default:stone",
-	clust_scarcity   = 6*6*6,
-	clust_num_ores   = 4,
-	clust_size       = 3,
-	y_min       = -31000,
-	y_max       = -32,
-	flags            = "absheight",
+	ore_type		= "blob",
+	ore				= "technic:mineral_lead",
+	wherein			= "default:stone",
+	clust_scarcity	= 25*25*25,
+	clust_size		= 5,
+	y_min			= -16,
+	y_max			= 16,
+	noise_threshhold	= lead_threshhold,
+	noise_params		= lead_params,
 })
 
 minetest.register_ore({
-	ore_type         = "scatter",
-	ore              = "technic:mineral_lead",
-	wherein          = "default:stone",
-	clust_scarcity   = 9*9*9,
-	clust_num_ores   = 5,
-	clust_size       = 3,
-	y_min       = -16,
-	y_max       = 16,
+	ore_type		= "blob",
+	ore				= "technic:mineral_lead",
+	wherein			= "default:stone",
+	clust_scarcity	= 24*24*24,
+	clust_size		= 7,
+	y_min			= -127,
+	y_max       	= -16,
+	noise_threshhold	= lead_threshhold,
+	noise_params		= lead_params,
 })
 
 minetest.register_ore({
-	ore_type         = "scatter",
-	ore              = "technic:mineral_lead",
-	wherein          = "default:stone",
-	clust_scarcity   = 8*8*8,
-	clust_num_ores   = 5,
-	clust_size       = 3,
-	y_min       = -127,
-	y_max       = -16,
-})
-
-minetest.register_ore({
-	ore_type         = "scatter",
-	ore              = "technic:mineral_lead",
-	wherein          = "default:stone",
-	clust_scarcity   = 6*6*6,
-	clust_num_ores   = 5,
-	clust_size       = 3,
-	y_min       = -31000,
-	y_max       = -128,
-	flags            = "absheight",
+	ore_type		= "blob",
+	ore				= "technic:mineral_lead",
+	wherein			= "default:stone",
+	clust_scarcity	= 23*23*23,
+	clust_size		= 9,
+	y_min			= -300,
+	y_max			= -128,
+	noise_threshhold	= lead_threshhold,
+	noise_params		= lead_params,
 })
 
 -- Sulfur
@@ -137,31 +141,43 @@ end)
 
 if technic.config:get_bool("enable_marble_generation") then
 minetest.register_ore({
-	ore_type       = "sheet",
-	ore            = "technic:marble",
-	wherein        = "default:stone",
-	clust_scarcity = 1,
-	clust_num_ores = 1,
-	clust_size     = 3,
-	y_min     = -31000,
-	y_max     = -20,
-	noise_threshhold = 0.4,
-	noise_params = {offset=0, scale=15, spread={x=150, y=150, z=150}, seed=23, octaves=3, persist=0.70}
+	ore_type		= "blob",
+	ore				= "technic:marble",
+	wherein			= "default:stone",
+	clust_scarcity	= 31*31*31,
+	clust_size		= 13,
+	y_min			= -300,
+	y_max			= -20,
+	noise_threshhold	= 0,
+	noise_params		= {offset=0.35, scale=0.2, spread = {x=5, y=5, z=5},
+		seed=23, octaves=1, persist=0.5}
 })
 end
 
 if technic.config:get_bool("enable_granite_generation") then
 minetest.register_ore({
-	ore_type       = "sheet",
-	ore            = "technic:granite",
-	wherein        = "default:stone",
-	clust_scarcity = 1,
-	clust_num_ores = 1,
-	clust_size     = 4,
-	y_min     = -31000,
-	y_max     = -100,
-	noise_threshhold = 0.4,
-	noise_params = {offset=0, scale=15, spread={x=130, y=130, z=130}, seed=24, octaves=3, persist=0.70}
+	ore_type		= "blob",
+	ore				= "technic:granite",
+	wherein			= "default:stone",
+	clust_scarcity	= 33*33*33,
+	clust_size		= 14,
+	y_min			= -300,
+	y_max			= -100,
+	noise_threshhold	= 0,
+	noise_params		= {offset=0.35, scale=0.2, spread = {x=5, y=5, z=5},
+		seed=24, octaves=1, persist=0.5}
 })
 end
 
+-- scatter uranium in whatever stone is left
+
+minetest.register_ore({
+	ore_type		= "scatter",
+	ore				= "technic:mineral_uranium",
+	wherein			= "default:stone",
+	clust_scarcity	= 9*9*9,
+	clust_num_ores	= 4,
+	clust_size		= 3,
+	y_min			= -300,
+	y_max			= -50,
+})
