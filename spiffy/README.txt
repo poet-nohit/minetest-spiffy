@@ -180,10 +180,9 @@ License of media (textures and sounds)
 Copyright (C) 2010-2012 celeron55, Perttu Ahola <celeron55@gmail.com>
 See README.txt in each mod directory for information about other authors.
 
-Some textures in default are by Calinou (CC BY-SA 4.0),
-VanessaE (WTFPL), kotolegokot (CC BY-SA 3.0), and BlockMen (CC BY-SA 3.0).
-
 Sound "nether_teleport" is by poet.nohit (WTFPL).
+
+Silver and Mithril tool textures derived from default textures by BlockMen (CC BY-SA 3.0).
 
 Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
 http://creativecommons.org/licenses/by-sa/3.0/
