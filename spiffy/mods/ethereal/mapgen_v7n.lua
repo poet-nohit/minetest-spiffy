@@ -399,9 +399,9 @@ minetest.register_decoration({							-- Apple Tree
 	deco_type = "schematic",
 	place_on = "ethereal:green_dirt",
 	sidelen = 80, -- was 16
-	fill_ratio = 0.030,
+	fill_ratio = 0.010,
 	biomes = {"ethereal:grassy", "ethereal:jumble"},
-	schematic = path.."tree.mts",
+	schematic = path.."tree1.mts",
 	flags = "place_center_x, place_center_z",
 })
 
@@ -409,9 +409,29 @@ minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = {"ethereal:green_dirt"},
 	sidelen = 80, -- was 16
-	fill_ratio = 0.005,
+	fill_ratio = 0.010,
 	biomes = {"ethereal:grassytwo"},
-	schematic = path.."tree.mts",
+	schematic = path.."tree2.mts",
+	flags = "place_center_x, place_center_z",
+})
+
+minetest.register_decoration({
+	deco_type = "schematic",
+	place_on = {"ethereal:green_dirt"},
+	sidelen = 80, -- was 16
+	fill_ratio = 0.010,
+	biomes = {"ethereal:grassytwo"},
+	schematic = path.."tree3.mts",
+	flags = "place_center_x, place_center_z",
+})
+
+minetest.register_decoration({
+	deco_type = "schematic",
+	place_on = {"ethereal:green_dirt"},
+	sidelen = 80, -- was 16
+	fill_ratio = 0.010,
+	biomes = {"ethereal:grassytwo"},
+	schematic = path.."tree4.mts",
 	flags = "place_center_x, place_center_z",
 })
 
