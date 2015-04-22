@@ -1031,7 +1031,7 @@ function mobs:explosion(pos, radius, fire, smoke, sound)
 			local n = minetest.get_node(p).name
 
 			-- *** proper
-			local def = ItemStack({name=minetest.get_node(p).name}):get_definition()
+			local def = ItemStack({name=n}):get_definition()
 			if def.diggable and not (def.can_dig and not def.can_dig(pos,digger)) then
 
 				-- do NOT destroy protection nodes but DO destroy nodes in protected area
