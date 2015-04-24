@@ -1032,17 +1032,31 @@ function mobs:explosion(pos, radius, fire, smoke, sound)
 
 			-- *** proper
 			local def = ItemStack({name=n}):get_definition()
-			if def.diggable and not (def.can_dig and not def.can_dig(pos,digger)) then
+			if def.diggable and not (def.can_dig and not def.can_dig(pos)) then
 
 				-- do NOT destroy protection nodes but DO destroy nodes in protected area
 				if not n:find("protector:") then
-					if fire > 0 and (minetest.registered_nodes[n].groups.flammable or math.random(1, 100) <= 30) then
-						minetest.set_node(p, {name="fire:basic_flame"})
-					else
+
+					-- *** organic material can go poof
+					if minetest.get_item_group(n, "snappy") > 0 or
+							minetest.get_item_group(n, "choppy") > 0 or
+							minetest.get_item_group(n, "fleshy") > 0 then
+						if fire > 0 and (minetest.registered_nodes[n].groups.flammable or
+								math.random(1, 100) <= 30) then
+							minetest.set_node(p, {name="fire:basic_flame"})
+						else
+							minetest.remove_node(p)
+						end
+						if smoke > 0 then
+							effect(p, 2, "tnt_smoke.png", 5)
+						end
+
+					-- *** dirt and sand can get dropped
+					elseif minetest.get_item_group(n, "crumbly") > 0 then
 						minetest.remove_node(p)
-					end
-					if smoke > 0 then
-						effect(p, 2, "tnt_smoke.png", 5)
+						local d = { x=p.x - 0.5 + math.random(),
+							y=p.y - 0.5 + math.random(), z=p.z - 0.5 + math.random() }
+						minetest.add_item(d, ItemStack(n))
 					end
 				end
 			end
