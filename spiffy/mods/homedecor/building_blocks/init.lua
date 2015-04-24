@@ -94,11 +94,14 @@ minetest.register_craft({
 	}
 })
 
+-- *** original conflicts with moreblocks recipe for default:wood
+
 minetest.register_craft({
 	output = 'building_blocks:sticks',
 	recipe = {
-		{'group:stick', 'group:stick'},
-		{'group:stick', 'group:stick'},
+		{'', 'group:stick', ''},
+		{'group:stick', '', 'group:stick'},
+		{'','group:stick',''},
 	}
 })
 
