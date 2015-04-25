@@ -1,6 +1,6 @@
 --[[
 
-	Minetest Ethereal Mod 1.14 (4th Feb 2015)
+	Minetest Ethereal Mod 1.16 (25th April 2015)
 
 	Created by ChinChow
 
@@ -35,6 +35,7 @@ ethereal.lake 			= 1 -- Small sandy lake areas with gravel below, also used for 
 ethereal.plains 		= 1 -- Dry dirt with scorched trees
 ethereal.fiery 			= 1 -- Red grass with lava craters
 ethereal.sandclay		= 1 -- Sand areas with clay underneath
+ethereal.icewater		= 1 -- Ice surrounding cold coastal areas
 
 dofile(minetest.get_modpath("ethereal").."/plantlife.lua")
 dofile(minetest.get_modpath("ethereal").."/mushroom.lua")
@@ -54,8 +55,7 @@ dofile(minetest.get_modpath("ethereal").."/sealife.lua")
 dofile(minetest.get_modpath("ethereal").."/fences.lua")
 dofile(minetest.get_modpath("ethereal").."/gates.lua")
 dofile(minetest.get_modpath("ethereal").."/stairs.lua")
---dofile(minetest.get_modpath("ethereal").."/mapgen_v7s.lua")
-dofile(minetest.get_modpath("ethereal").."/mapgen_v7n.lua") -- 0.4.11 dev only
+dofile(minetest.get_modpath("ethereal").."/mapgen_v7n.lua") -- 0.4.12 and above
 
 -- Xanadu server Only
 --dofile(minetest.get_modpath("ethereal").."/plantpack.lua")

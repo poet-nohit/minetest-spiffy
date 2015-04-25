@@ -5,10 +5,18 @@ https://forum.minetest.net/viewtopic.php?id=7656
 
 Changelog:
 
+1.16
+Added new tree schematics that change when placed with random leaves, fruit and height
+Changed frost dirt so that it no longer freezes water (saves lag)
+Torches cannot be placed next to water, otherwise they drop as items
+Added latest farming redo Bean Bushes to mapgen
+
 1.15
 Added Staff of Light (thanks Xanthin), crafted from illumishrooms and can turn stone into glostone and back again
 Changed how Crystal Spikes reproduce
 Crystal Ingots now require 2x mese crystal and 2x crystal spikes to craft
+Removed obsidian brick & stairs now they are in default game, also removed pine wood stairs for same reason
+Tidied code and optimized a few routines
 
 
 1.14

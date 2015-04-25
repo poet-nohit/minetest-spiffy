@@ -12,9 +12,6 @@ minetest.register_node("ethereal:vine", {
 	is_ground_content = false,
 	selection_box = {
 		type = "wallmounted",
-		--wall_top = = <default>
-		--wall_bottom = = <default>
-		--wall_side = = <default>
 	},
 	groups = {choppy=3, oddly_breakable_by_hand=1},
 	legacy_wallmounted = true,
@@ -44,9 +41,6 @@ minetest.register_node("ethereal:stone_ladder", {
 	is_ground_content = false,
 	selection_box = {
 		type = "wallmounted",
-		--wall_top = = <default>
-		--wall_bottom = = <default>
-		--wall_side = = <default>
 	},
 	groups = {cracky=3, oddly_breakable_by_hand=1},
 	legacy_wallmounted = true,
@@ -239,9 +233,9 @@ minetest.register_tool("ethereal:light_staff", {
 		local node = minetest.get_node(pos).name
 
 		if node == "default:stone" then
-			minetest.env:add_node(pos, {name="ethereal:glostone"})
+			minetest.add_node(pos, {name="ethereal:glostone"})
 		elseif node == "ethereal:glostone" then
-			minetest.env:add_node(pos, {name="default:stone"})
+			minetest.add_node(pos, {name="default:stone"})
 		end
 
 		if not minetest.setting_getbool("creative_mode") then
@@ -265,10 +259,10 @@ minetest.register_craft({
 minetest.register_on_generated(function(minp, maxp, seed)
 
 	local coal_nodes = minetest.find_nodes_in_area(minp, maxp, "default:stone_with_coal")
-
+	local bpos
 	for key, pos in pairs(coal_nodes) do
 
-		local bpos = { x=pos.x, y=pos.y + 1, z=pos.z }
+		bpos = { x=pos.x, y=pos.y + 1, z=pos.z }
 
 		if minetest.get_node(bpos).name == "air" then
 			if bpos.y > -300 and bpos.y < -200 then
