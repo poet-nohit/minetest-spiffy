@@ -229,6 +229,7 @@ if minetest.get_modpath("farming") and farming.mod == "redo" then
 	register_food("farming:bread", 6)
 	register_food("farming:potato", 1)
 	register_food("farming:baked_potato", 6)
+	register_food("farming:beans", 1)
 	register_food("farming:cucumber", 4)
 	register_food("farming:tomato", 4)
 	register_food("farming:carrot", 3)
