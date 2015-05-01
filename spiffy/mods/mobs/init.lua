@@ -52,7 +52,7 @@ minetest.register_craft({
 -- Golden Lasso
 
 minetest.register_tool("mobs:magic_lasso", {
-	description = "Magic Lasso (right-click animal to put in inventory)",
+	description = "Magic Lasso",
 	inventory_image = "mobs_magic_lasso.png",
 })
 
