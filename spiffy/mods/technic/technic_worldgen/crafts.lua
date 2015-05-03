@@ -186,6 +186,11 @@ for _, i in ipairs({
 	"mesecons_doors:op_door_steel",
 	"mesecons_doors:sig_door_steel",
 	"vessels:steel_bottle",
+	"3d_armor:helmet_steel",
+	"3d_armor:chestplate_steel",
+	"3d_armor:leggings_steel",
+	"3d_armor:boots_steel",
+	"shields:shield_steel",
 }) do
 	steel_to_iron[i] = true
 end
