@@ -84,15 +84,10 @@ end
 minetest.register_entity("throwing:arrow_entity", THROWING_ARROW_ENTITY)
 
 minetest.register_craft({
-	output = "throwing:arrow 16",
+	output = "throwing:arrow 4",
 	recipe = {
-		{"default:stick", "default:stick", "default:cobble"},
-	}
-})
-
-minetest.register_craft({
-	output = "throwing:arrow 16",
-	recipe = {
-		{"default:cobble", "default:stick", "default:stick"},
+		{ "fake_fire:flint" },
+		{ "default:stick" },
+		{ "default:paper" },
 	}
 })
