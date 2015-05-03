@@ -2,3 +2,4 @@ default
 bucket
 fire
 farming
+fake_fire
