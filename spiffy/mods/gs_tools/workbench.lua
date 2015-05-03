@@ -103,6 +103,21 @@ gs_tools.load_crafts = function(item)
 				end
 			end
 		end
+		-- *** centrifuge
+		for _, r in pairs(technic.recipes["separating"].recipes) do
+			for i=1,2 do
+				local t = {}
+				t.type = "separ"
+				if ItemStack(r.output[i]):get_name() == item then
+					t.width = 0
+					local k,v = next(r.input)
+					t.items = { k }
+					t.count = { v }
+					t.output = r.output[i]
+					table.insert(gs_tools.crafts[item], t)
+				end
+			end
+		end
 
 	end
 
@@ -511,6 +526,10 @@ gs_tools.workbench_formspec = function(pos, params)
 		end
 		if rt == "extra" then
 			rec = rec .. "button[4.5,0;1,1;extr_this;Extr]"
+		end
+		-- *** centrifuge
+		if rt == "separ" then
+			rec = rec .. "button[4.5,0;1,1;cent_this;Cent]"
 		end
 
 		-- recipe buttons
