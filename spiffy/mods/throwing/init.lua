@@ -81,7 +81,7 @@ minetest.register_craft({
 
 
 minetest.register_tool("throwing:bow_steel", {
-	description = "Steel Bow",
+	description = "Iron Bow",
 	inventory_image = "throwing_bow_steel.png",
 	on_use = function(itemstack, user, pointed_thing)
 		if throwing_shoot_arrow(item, user, pointed_thing) then
