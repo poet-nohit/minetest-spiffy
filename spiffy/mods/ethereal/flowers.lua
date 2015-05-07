@@ -18,7 +18,7 @@ minetest.register_abm({
 		if #minetest.find_nodes_in_area(pos0, pos1, "group:flora") > 3 then
 
 			local grass = minetest.find_nodes_in_area(pos0, pos1, {"ethereal:crystalgrass"})
-			local crystal = minetest.find_nodes_in_area_under_air(pos0, pos1, {"ethereal:crystal_spike"})
+			local crystal = minetest.find_nodes_in_area(pos0, pos1, {"ethereal:crystal_spike"})
 
 			if #grass > 6 and #crystal < 1 then
 				grass = grass[math.random(#grass)]
