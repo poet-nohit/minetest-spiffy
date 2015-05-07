@@ -1,3 +1,0 @@
-default
-technic
-3d_armor
